@@ -23,7 +23,7 @@ gh auth status >/dev/null 2>&1 || gh auth login
 if [ ! -d .git ]; then
   git init -b main
   git add -A
-  git commit -m "MEKN v0.1 - Home screen"
+  git commit -m "MENK v0.1 - Home screen"
 fi
 
 read -rp "GitHub repo name [mekn]: " REPO

@@ -10,10 +10,20 @@ android {
 
     defaultConfig {
         applicationId = "org.mekn.app"
-        minSdk = 24
+        minSdk = 26  // Android 8+, needed for the adaptive launcher icon
         targetSdk = 34
-        versionCode = 1
-        versionName = "0.1.0"
+        versionCode = 9
+        versionName = "0.6.0"
+    }
+
+    signingConfigs {
+        getByName("debug") {
+            // Fixed debug key so each new build installs over the last one.
+            storeFile = file("debug.keystore")
+            storePassword = "android"
+            keyAlias = "androiddebugkey"
+            keyPassword = "android"
+        }
     }
 
     buildTypes {
@@ -42,5 +52,6 @@ dependencies {
     implementation("androidx.compose.foundation:foundation")
     implementation("androidx.compose.material3:material3")
     implementation("androidx.compose.material:material-icons-extended")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
     debugImplementation("androidx.compose.ui:ui-tooling")
 }

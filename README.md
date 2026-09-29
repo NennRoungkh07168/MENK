@@ -1,10 +1,27 @@
-# MEKN — Medical Evidence Knowledge Network (Android app, v0.1)
+# MENK — Medical Evidence Knowledge Network (Android app, v0.6)
 
-MEKN explains published evidence. It does not diagnose or recommend treatment.
+MENK explains published evidence. It does not diagnose or recommend treatment.
 
-This version contains the Home screen (search, camera button, Patient/Researcher
-switch, Scan card, Explore cards, Recent scans) and bottom navigation.
-Explore, India, Evidence and Scan are placeholders for now.
+v0.2 adds live search. Type a disease, medicine, herb or compound on Home and
+press Search. Results come from free public databases:
+
+- Europe PMC (includes PubMed): research papers, abstracts, and counts by study type
+- ClinicalTrials.gov: registered clinical studies and how many are recruiting
+- PubChem: chemical identity (formula, weight, identifiers)
+- openFDA: official US drug label (approved uses, interactions, warnings),
+  FDA approvals (Drugs@FDA), products and manufacturers (NDC directory),
+  and manufacturing recalls (enforcement reports)
+- ClinicalTrials.gov posted results: enrollment, main outcome, serious adverse events
+
+The app (MENK) shows what has been studied and how strong that research is.
+It does not diagnose, recommend treatment, or claim that anything is a cure.
+
+v0.5 adds the built-in MENK Library (works offline): 10 medicines, 8 diseases,
+5 herbs and 15 research institutions in Germany and India. Every section is
+tagged by evidence type (Official, Guideline, Human research, Lab only,
+Traditional, Safety). Data lives in app/src/main/assets/library.json.
+
+The Scan tab is still a placeholder.
 
 ## How the build works
 
@@ -42,7 +59,7 @@ expect a desktop computer.
 ## Without Termux
 
 Upload the files to a GitHub repo through the website, open the Actions tab,
-run "Build MEKN APK", and download `mekn-debug-apk` from the finished run.
+run "Build MEKN APK", and download `menk-debug-apk` from the finished run.
 
 ## Project layout
 
@@ -56,3 +73,15 @@ run "Build MEKN APK", and download `mekn-debug-apk` from the finished run.
 - This is a debug build, fine for testing on your own phone. Publishing on the
   Play Store later needs a signed release build.
 - If a build fails, run:  gh run view --log-failed
+
+Note: the app is named MENK. Internal code names (folder MEKN, package org.mekn.app)
+stay unchanged so updates keep installing over the existing app.
+
+## Database design
+
+- docs/DATABASE.md — architecture for 100M+ compounds and millions of medicines
+- database/schema.sql — full PostgreSQL schema (server side, not used by the app yet)
+- database/chem_search_rdkit.sql — optional structure and similarity search
+
+## v0.6
+See docs/MENK_V0.6.md for the five-tab layout, drug index, library sections, Research center and Simulation Lab.

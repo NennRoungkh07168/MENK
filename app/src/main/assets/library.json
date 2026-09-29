@@ -1,0 +1,1390 @@
+{
+ "version": 1,
+ "entries": [
+  {
+   "id": "aspirin",
+   "type": "medicine",
+   "name": "Aspirin",
+   "subtitle": "Acetylsalicylic acid · NSAID and antiplatelet",
+   "search": "aspirin",
+   "summary": "One of the oldest and most studied medicines. Used for pain and fever, and at low dose to prevent blood clots in people at high risk.",
+   "sections": [
+    {
+     "tag": "Official",
+     "title": "Used for",
+     "text": "Pain, fever and inflammation. Low-dose aspirin is used to lower the risk of heart attack and stroke in selected people, only when a doctor advises it."
+    },
+    {
+     "tag": "Official",
+     "title": "How it works",
+     "text": "Permanently blocks the COX-1 and COX-2 enzymes. This lowers prostaglandins (pain, fever, inflammation) and, in platelets, thromboxane, so blood clots less easily."
+    },
+    {
+     "tag": "Safety",
+     "title": "Main risks",
+     "text": "Stomach irritation and bleeding, including stomach ulcers. Can trigger breathing problems in some people with asthma."
+    },
+    {
+     "tag": "Safety",
+     "title": "Interactions",
+     "text": "Higher bleeding risk with blood thinners such as warfarin, with other NSAIDs such as ibuprofen, and with alcohol."
+    },
+    {
+     "tag": "Safety",
+     "title": "Do not use",
+     "text": "In children or teenagers with a viral illness such as flu or chickenpox, because of the risk of Reye's syndrome."
+    }
+   ],
+   "sources": [
+    "US FDA label (DailyMed / openFDA)",
+    "PubChem"
+   ]
+  },
+  {
+   "id": "paracetamol",
+   "type": "medicine",
+   "name": "Paracetamol",
+   "subtitle": "Acetaminophen · pain reliever and fever reducer",
+   "search": "acetaminophen",
+   "summary": "A common first choice for pain and fever. Gentle on the stomach, but an overdose can cause serious liver damage.",
+   "sections": [
+    {
+     "tag": "Official",
+     "title": "Used for",
+     "text": "Mild to moderate pain and fever."
+    },
+    {
+     "tag": "Official",
+     "title": "How it works",
+     "text": "Not fully understood. It is thought to act mainly in the brain, reducing pain signals and fever, with little anti-inflammatory effect."
+    },
+    {
+     "tag": "Safety",
+     "title": "Main risks",
+     "text": "Taking more than the maximum daily amount can cause severe, sometimes fatal liver damage. Many cold and flu products also contain paracetamol, so doses can add up without noticing."
+    },
+    {
+     "tag": "Safety",
+     "title": "Interactions",
+     "text": "Regular heavy alcohol use raises the risk of liver damage. Long-term use may increase the effect of warfarin."
+    }
+   ],
+   "sources": [
+    "US FDA label (DailyMed / openFDA)",
+    "PubChem"
+   ]
+  },
+  {
+   "id": "ibuprofen",
+   "type": "medicine",
+   "name": "Ibuprofen",
+   "subtitle": "NSAID · anti-inflammatory pain reliever",
+   "search": "ibuprofen",
+   "summary": "A widely used anti-inflammatory for pain, fever and swelling.",
+   "sections": [
+    {
+     "tag": "Official",
+     "title": "Used for",
+     "text": "Pain, fever, and inflammation such as in arthritis, muscle pain and period pain."
+    },
+    {
+     "tag": "Official",
+     "title": "How it works",
+     "text": "Temporarily blocks the COX enzymes, lowering prostaglandins that cause pain, fever and swelling."
+    },
+    {
+     "tag": "Safety",
+     "title": "Main risks",
+     "text": "Stomach bleeding and ulcers, kidney problems, and a higher risk of heart attack and stroke, especially with long use or high doses. Prescription NSAID labels in the US carry a boxed warning about these risks."
+    },
+    {
+     "tag": "Safety",
+     "title": "Interactions",
+     "text": "More bleeding with blood thinners and aspirin. Can weaken some blood pressure medicines and harm the kidneys when combined with them."
+    },
+    {
+     "tag": "Safety",
+     "title": "Pregnancy",
+     "text": "Usually avoided in later pregnancy unless a doctor advises it."
+    }
+   ],
+   "sources": [
+    "US FDA label (DailyMed / openFDA)",
+    "PubChem"
+   ]
+  },
+  {
+   "id": "metformin",
+   "type": "medicine",
+   "name": "Metformin",
+   "subtitle": "Biguanide · type 2 diabetes medicine",
+   "search": "metformin",
+   "summary": "The usual first medicine for type 2 diabetes, used for more than 60 years.",
+   "sections": [
+    {
+     "tag": "Official",
+     "title": "Used for",
+     "text": "Lowering blood sugar in type 2 diabetes, together with diet and exercise."
+    },
+    {
+     "tag": "Official",
+     "title": "How it works",
+     "text": "Reduces the amount of sugar the liver releases and helps the body respond better to insulin. It does not usually cause low blood sugar on its own."
+    },
+    {
+     "tag": "Safety",
+     "title": "Main risks",
+     "text": "Stomach upset and diarrhoea, usually at the start. Long-term use can lower vitamin B12. A rare but serious risk is lactic acidosis, mainly in people with poor kidney function; the US label carries a boxed warning about it."
+    },
+    {
+     "tag": "Safety",
+     "title": "Good to know",
+     "text": "Kidney function should be checked regularly. Doctors may pause it around some X-ray scans that use contrast dye."
+    }
+   ],
+   "sources": [
+    "US FDA label (DailyMed / openFDA)",
+    "PubChem"
+   ]
+  },
+  {
+   "id": "amoxicillin",
+   "type": "medicine",
+   "name": "Amoxicillin",
+   "subtitle": "Penicillin-type antibiotic",
+   "search": "amoxicillin",
+   "summary": "A widely used antibiotic for common bacterial infections.",
+   "sections": [
+    {
+     "tag": "Official",
+     "title": "Used for",
+     "text": "Bacterial infections such as ear, throat, chest and urinary infections, and as part of treatment for H. pylori stomach infection."
+    },
+    {
+     "tag": "Official",
+     "title": "How it works",
+     "text": "Stops bacteria from building their cell walls, so they burst and die."
+    },
+    {
+     "tag": "Safety",
+     "title": "Main risks",
+     "text": "Allergic reactions, from rash to rare life-threatening anaphylaxis. People allergic to penicillin should not take it. Diarrhoea is common."
+    },
+    {
+     "tag": "Info",
+     "title": "Good to know",
+     "text": "Antibiotics do not work against viruses such as colds and flu. Taking them when they aren't needed helps bacteria become resistant."
+    }
+   ],
+   "sources": [
+    "US FDA label (DailyMed / openFDA)",
+    "PubChem"
+   ]
+  },
+  {
+   "id": "atorvastatin",
+   "type": "medicine",
+   "name": "Atorvastatin",
+   "subtitle": "Statin · cholesterol-lowering medicine",
+   "search": "atorvastatin",
+   "summary": "Lowers 'bad' LDL cholesterol and reduces the risk of heart attack and stroke.",
+   "sections": [
+    {
+     "tag": "Official",
+     "title": "Used for",
+     "text": "Lowering LDL cholesterol and reducing cardiovascular risk in people at higher risk."
+    },
+    {
+     "tag": "Official",
+     "title": "How it works",
+     "text": "Blocks HMG-CoA reductase, an enzyme the liver uses to make cholesterol."
+    },
+    {
+     "tag": "Safety",
+     "title": "Main risks",
+     "text": "Muscle aches; rarely serious muscle breakdown. Liver enzyme changes. Not used in pregnancy."
+    },
+    {
+     "tag": "Safety",
+     "title": "Interactions",
+     "text": "Some antibiotics, antifungals and HIV medicines raise its level in the blood and the risk of muscle problems. Large amounts of grapefruit juice can do the same."
+    }
+   ],
+   "sources": [
+    "US FDA label (DailyMed / openFDA)",
+    "PubChem"
+   ]
+  },
+  {
+   "id": "amlodipine",
+   "type": "medicine",
+   "name": "Amlodipine",
+   "subtitle": "Calcium channel blocker · blood pressure medicine",
+   "search": "amlodipine",
+   "summary": "A common once-daily medicine for high blood pressure and chest pain (angina).",
+   "sections": [
+    {
+     "tag": "Official",
+     "title": "Used for",
+     "text": "High blood pressure and angina."
+    },
+    {
+     "tag": "Official",
+     "title": "How it works",
+     "text": "Relaxes and widens blood vessels by blocking calcium from entering the muscle cells in their walls."
+    },
+    {
+     "tag": "Safety",
+     "title": "Main risks",
+     "text": "Ankle swelling, flushing, headache and dizziness."
+    }
+   ],
+   "sources": [
+    "US FDA label (DailyMed / openFDA)",
+    "PubChem"
+   ]
+  },
+  {
+   "id": "omeprazole",
+   "type": "medicine",
+   "name": "Omeprazole",
+   "subtitle": "Proton pump inhibitor · stomach acid reducer",
+   "search": "omeprazole",
+   "summary": "Strongly reduces stomach acid. Used for reflux and ulcers.",
+   "sections": [
+    {
+     "tag": "Official",
+     "title": "Used for",
+     "text": "Acid reflux (GERD), stomach and duodenal ulcers, and as part of treatment for H. pylori infection."
+    },
+    {
+     "tag": "Official",
+     "title": "How it works",
+     "text": "Blocks the 'proton pump' in stomach cells that produces acid."
+    },
+    {
+     "tag": "Safety",
+     "title": "Long-term use",
+     "text": "Linked to low vitamin B12 and magnesium, a higher risk of some bone fractures, and certain gut infections."
+    },
+    {
+     "tag": "Safety",
+     "title": "Interactions",
+     "text": "Can reduce the effect of the blood thinner clopidogrel."
+    }
+   ],
+   "sources": [
+    "US FDA label (DailyMed / openFDA)",
+    "PubChem"
+   ]
+  },
+  {
+   "id": "salbutamol",
+   "type": "medicine",
+   "name": "Salbutamol",
+   "subtitle": "Albuterol · short-acting reliever inhaler",
+   "search": "albuterol",
+   "summary": "The blue 'reliever' inhaler used to quickly open the airways.",
+   "sections": [
+    {
+     "tag": "Official",
+     "title": "Used for",
+     "text": "Quick relief of wheezing and breathlessness in asthma and COPD, and before exercise in some people."
+    },
+    {
+     "tag": "Official",
+     "title": "How it works",
+     "text": "Stimulates beta-2 receptors in the airway muscles, making them relax within minutes."
+    },
+    {
+     "tag": "Safety",
+     "title": "Main risks",
+     "text": "Shaking, fast heartbeat and headache."
+    },
+    {
+     "tag": "Guideline",
+     "title": "Good to know",
+     "text": "Needing the reliever often is a sign asthma isn't well controlled. International asthma guidelines (GINA) no longer recommend treating adults and teenagers with a reliever alone."
+    }
+   ],
+   "sources": [
+    "US FDA label (DailyMed / openFDA)",
+    "GINA asthma guidelines",
+    "PubChem"
+   ]
+  },
+  {
+   "id": "artemether-lumefantrine",
+   "type": "medicine",
+   "name": "Artemether–lumefantrine",
+   "subtitle": "Artemisinin combination therapy (ACT) · antimalarial",
+   "search": "artemether lumefantrine",
+   "summary": "A WHO-recommended combination treatment for uncomplicated falciparum malaria.",
+   "sections": [
+    {
+     "tag": "Guideline",
+     "title": "Used for",
+     "text": "Uncomplicated malaria caused by Plasmodium falciparum. Severe malaria needs hospital treatment, usually with injectable artesunate."
+    },
+    {
+     "tag": "Official",
+     "title": "How it works",
+     "text": "Artemether kills parasites quickly; lumefantrine lasts longer in the body and clears the rest. Using two drugs together helps prevent resistance."
+    },
+    {
+     "tag": "Safety",
+     "title": "Good to know",
+     "text": "Taken with food containing some fat, which helps absorption. Caution with other medicines that affect heart rhythm."
+    },
+    {
+     "tag": "Research",
+     "title": "Resistance",
+     "text": "Partial resistance to artemisinin has been documented in the Greater Mekong region of Southeast Asia, so treatment follows national guidelines."
+    }
+   ],
+   "sources": [
+    "WHO malaria guidelines",
+    "US FDA label (DailyMed / openFDA)"
+   ]
+  },
+  {
+   "id": "type-2-diabetes",
+   "type": "disease",
+   "name": "Type 2 diabetes",
+   "subtitle": "Metabolic disease",
+   "search": "type 2 diabetes",
+   "summary": "The body doesn't respond properly to insulin or doesn't make enough, so blood sugar stays too high.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Signs",
+     "text": "Thirst, passing urine often, tiredness and blurred vision. Many people have no symptoms for years."
+    },
+    {
+     "tag": "Guideline",
+     "title": "Diagnosis",
+     "text": "Blood tests such as HbA1c or fasting blood glucose."
+    },
+    {
+     "tag": "Guideline",
+     "title": "Established treatments",
+     "text": "Healthy eating, activity and weight management; metformin is usually the first medicine. Other options include SGLT2 inhibitors, GLP-1 receptor agonists and insulin."
+    },
+    {
+     "tag": "Safety",
+     "title": "Why control matters",
+     "text": "Long-term high blood sugar damages the heart, kidneys, eyes, nerves and feet."
+    }
+   ],
+   "sources": [
+    "WHO",
+    "ADA Standards of Care"
+   ]
+  },
+  {
+   "id": "hypertension",
+   "type": "disease",
+   "name": "High blood pressure",
+   "subtitle": "Hypertension · cardiovascular",
+   "search": "high blood pressure",
+   "summary": "Blood pressure that stays too high. The main preventable cause of stroke and heart disease.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Signs",
+     "text": "Usually none, which is why regular checks matter."
+    },
+    {
+     "tag": "Guideline",
+     "title": "Diagnosis",
+     "text": "Repeated readings. Guidelines differ on the cut-off: some use 140/90 mmHg, US guidelines use 130/80 mmHg."
+    },
+    {
+     "tag": "Guideline",
+     "title": "Established treatments",
+     "text": "Less salt, activity, weight control and less alcohol. Common medicines: ACE inhibitors, ARBs, calcium channel blockers such as amlodipine, and thiazide diuretics."
+    }
+   ],
+   "sources": [
+    "WHO",
+    "ESC and ACC/AHA guidelines"
+   ]
+  },
+  {
+   "id": "asthma",
+   "type": "disease",
+   "name": "Asthma",
+   "subtitle": "Chronic airway disease",
+   "search": "asthma",
+   "summary": "Long-term inflammation of the airways that causes attacks of wheezing and breathlessness.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Signs",
+     "text": "Wheezing, cough, chest tightness and breathlessness, often worse at night or with triggers."
+    },
+    {
+     "tag": "Guideline",
+     "title": "Established treatments",
+     "text": "Inhalers containing a steroid to control inflammation, plus a reliever for symptoms. Treatment is adjusted step by step."
+    },
+    {
+     "tag": "Safety",
+     "title": "Emergency",
+     "text": "Get urgent help if the reliever doesn't help, or breathing or speaking becomes hard."
+    }
+   ],
+   "sources": [
+    "GINA asthma guidelines",
+    "WHO"
+   ]
+  },
+  {
+   "id": "tuberculosis",
+   "type": "disease",
+   "name": "Tuberculosis (TB)",
+   "subtitle": "Bacterial infection · Mycobacterium tuberculosis",
+   "search": "tuberculosis (tb)",
+   "summary": "An airborne infection that usually affects the lungs. It is curable with the full course of treatment.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Signs",
+     "text": "Cough lasting more than two weeks, fever, night sweats and weight loss."
+    },
+    {
+     "tag": "Guideline",
+     "title": "Established treatments",
+     "text": "Several antibiotics taken together for months, usually at least six; WHO also recommends some shorter regimens for certain patients. Finishing treatment prevents drug-resistant TB."
+    },
+    {
+     "tag": "Info",
+     "title": "Prevention",
+     "text": "Early diagnosis and treatment, good ventilation, and the BCG vaccine for young children in many countries."
+    }
+   ],
+   "sources": [
+    "WHO TB guidelines"
+   ]
+  },
+  {
+   "id": "malaria",
+   "type": "disease",
+   "name": "Malaria",
+   "subtitle": "Parasitic infection spread by mosquitoes",
+   "search": "malaria",
+   "summary": "Caused by Plasmodium parasites passed on by Anopheles mosquito bites. Can become severe quickly.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Signs",
+     "text": "Fever, chills, headache and body aches, usually 1–4 weeks after a bite."
+    },
+    {
+     "tag": "Guideline",
+     "title": "Diagnosis",
+     "text": "A rapid diagnostic test or blood smear. Test before treating."
+    },
+    {
+     "tag": "Guideline",
+     "title": "Established treatments",
+     "text": "Artemisinin combination therapies for uncomplicated falciparum malaria; injectable artesunate for severe malaria."
+    },
+    {
+     "tag": "Info",
+     "title": "Prevention",
+     "text": "Insecticide-treated bed nets, repellents, and in parts of Africa the RTS,S and R21 vaccines for children."
+    }
+   ],
+   "sources": [
+    "WHO malaria guidelines"
+   ]
+  },
+  {
+   "id": "dengue",
+   "type": "disease",
+   "name": "Dengue",
+   "subtitle": "Viral infection spread by Aedes mosquitoes",
+   "search": "dengue",
+   "summary": "A common tropical virus infection. Most people recover, but some develop severe dengue.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Signs",
+     "text": "High fever, severe headache, pain behind the eyes, muscle and joint pain, and rash."
+    },
+    {
+     "tag": "Safety",
+     "title": "Warning signs",
+     "text": "Severe belly pain, repeated vomiting, bleeding gums or nose, and drowsiness or restlessness need urgent medical care."
+    },
+    {
+     "tag": "Guideline",
+     "title": "Care",
+     "text": "No specific antiviral. Rest, fluids and paracetamol for fever. Avoid aspirin and ibuprofen, which raise bleeding risk."
+    },
+    {
+     "tag": "Research",
+     "title": "Vaccines",
+     "text": "Vaccines exist but are recommended only in certain settings and age groups; follow national advice."
+    }
+   ],
+   "sources": [
+    "WHO dengue guidance"
+   ]
+  },
+  {
+   "id": "pancreatic-cancer",
+   "type": "disease",
+   "name": "Pancreatic cancer",
+   "subtitle": "Cancer · most often pancreatic ductal adenocarcinoma",
+   "search": "pancreatic cancer",
+   "summary": "Often found late because early symptoms are vague.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Signs",
+     "text": "Yellowing of skin or eyes, upper belly or back pain, weight loss and new diabetes in some people."
+    },
+    {
+     "tag": "Guideline",
+     "title": "Established treatments",
+     "text": "Surgery when the tumour can be removed; combination chemotherapy such as FOLFIRINOX or gemcitabine with nab-paclitaxel; olaparib for some people with an inherited BRCA mutation."
+    },
+    {
+     "tag": "Research",
+     "title": "Under investigation",
+     "text": "Drugs targeting the KRAS protein, which is altered in most tumours, are being tested in clinical trials."
+    }
+   ],
+   "sources": [
+    "NCCN and ESMO guidelines",
+    "ClinicalTrials.gov"
+   ]
+  },
+  {
+   "id": "alzheimers",
+   "type": "disease",
+   "name": "Alzheimer's disease",
+   "subtitle": "Neurodegenerative disease · most common cause of dementia",
+   "search": "alzheimer disease",
+   "summary": "A brain disease that slowly damages memory and thinking.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Signs",
+     "text": "Memory loss that disrupts daily life, confusion, and difficulty with planning and language."
+    },
+    {
+     "tag": "Research",
+     "title": "In the brain",
+     "text": "Build-up of amyloid plaques and tau tangles, and loss of nerve cells."
+    },
+    {
+     "tag": "Official",
+     "title": "Treatments",
+     "text": "Donepezil, rivastigmine, galantamine and memantine can help symptoms. Lecanemab and donanemab, antibodies that clear amyloid, are approved in some countries for early disease; they need regular brain scans because of a risk of brain swelling or bleeding."
+    }
+   ],
+   "sources": [
+    "FDA",
+    "NIA (US National Institute on Aging)"
+   ]
+  },
+  {
+   "id": "turmeric",
+   "type": "herb",
+   "name": "Turmeric",
+   "subtitle": "Curcuma longa · rhizome · spice and Ayurvedic herb",
+   "search": "curcumin",
+   "summary": "A traditional medicine and everyday spice. Its main compound, curcumin, is widely studied but poorly absorbed.",
+   "sections": [
+    {
+     "tag": "Traditional",
+     "title": "Traditional use",
+     "text": "Used in Ayurveda for inflammation, digestion and skin."
+    },
+    {
+     "tag": "Lab",
+     "title": "Laboratory research",
+     "text": "Many studies, but curcumin often gives false positives in lab screens, so these results need caution."
+    },
+    {
+     "tag": "Research",
+     "title": "Human studies",
+     "text": "Mostly small trials with mixed results. Not approved as a treatment for any disease."
+    },
+    {
+     "tag": "Safety",
+     "title": "Safety",
+     "text": "Concentrated supplements may raise bleeding risk with blood thinners; liver injury has been reported with some supplements. Cooking amounts are different from supplement doses."
+    }
+   ],
+   "sources": [
+    "IMPPAT",
+    "CCRAS",
+    "PubMed"
+   ]
+  },
+  {
+   "id": "ashwagandha",
+   "type": "herb",
+   "name": "Ashwagandha",
+   "subtitle": "Withania somnifera · root · Ayurvedic herb",
+   "search": "ashwagandha",
+   "summary": "A popular Ayurvedic herb marketed for stress and sleep.",
+   "sections": [
+    {
+     "tag": "Traditional",
+     "title": "Traditional use",
+     "text": "Used in Ayurveda as a 'rasayana' (rejuvenating) herb."
+    },
+    {
+     "tag": "Research",
+     "title": "Human studies",
+     "text": "Small, short trials suggest some effect on stress and sleep; larger, longer studies are lacking."
+    },
+    {
+     "tag": "Safety",
+     "title": "Safety",
+     "text": "Cases of liver injury have been reported. Avoid in pregnancy. Some countries have restricted its sale."
+    }
+   ],
+   "sources": [
+    "CCRAS",
+    "PubMed"
+   ]
+  },
+  {
+   "id": "ginger",
+   "type": "herb",
+   "name": "Ginger",
+   "subtitle": "Zingiber officinale · rhizome",
+   "search": "ginger",
+   "summary": "A spice with some of the better human evidence among herbs, mainly for nausea.",
+   "sections": [
+    {
+     "tag": "Traditional",
+     "title": "Traditional use",
+     "text": "Used across Asia for nausea, digestion and colds."
+    },
+    {
+     "tag": "Research",
+     "title": "Human studies",
+     "text": "Trials and reviews suggest it can ease nausea in pregnancy; evidence for other uses is weaker."
+    },
+    {
+     "tag": "Safety",
+     "title": "Safety",
+     "text": "Large supplement doses may add to the effect of blood thinners."
+    }
+   ],
+   "sources": [
+    "PubMed",
+    "Cochrane reviews"
+   ]
+  },
+  {
+   "id": "garlic",
+   "type": "herb",
+   "name": "Garlic",
+   "subtitle": "Allium sativum · bulb",
+   "search": "garlic",
+   "summary": "A food with modest effects on blood pressure and cholesterol in some studies.",
+   "sections": [
+    {
+     "tag": "Research",
+     "title": "Human studies",
+     "text": "Reviews of trials report small reductions in blood pressure and cholesterol with garlic supplements; results vary between products."
+    },
+    {
+     "tag": "Safety",
+     "title": "Interactions",
+     "text": "May raise bleeding risk with blood thinners and lower levels of some HIV medicines, such as saquinavir."
+    }
+   ],
+   "sources": [
+    "PubMed",
+    "NCCIH (US)"
+   ]
+  },
+  {
+   "id": "neem",
+   "type": "herb",
+   "name": "Neem",
+   "subtitle": "Azadirachta indica · leaf, bark, seed oil",
+   "search": "neem",
+   "summary": "A traditional medicinal tree in South Asia, used mostly on the skin and teeth.",
+   "sections": [
+    {
+     "tag": "Traditional",
+     "title": "Traditional use",
+     "text": "Used in Ayurveda for skin conditions and oral hygiene."
+    },
+    {
+     "tag": "Lab",
+     "title": "Laboratory research",
+     "text": "Antimicrobial and other effects in lab studies; human evidence is limited."
+    },
+    {
+     "tag": "Safety",
+     "title": "Safety",
+     "text": "Neem oil taken by mouth has caused serious poisoning in young children. Keep it away from children."
+    }
+   ],
+   "sources": [
+    "IMPPAT",
+    "PubMed"
+   ]
+  },
+  {
+   "id": "max-planck",
+   "type": "institution",
+   "name": "Max Planck Society",
+   "subtitle": "Germany · Munich headquarters",
+   "search": "max planck society",
+   "summary": "Germany's leading basic-research organization, with 84 institutes and research facilities.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Research focus",
+     "text": "Basic research across the natural sciences, life sciences and humanities, including biochemistry, infection biology and molecular medicine."
+    }
+   ],
+   "sources": [
+    "mpg.de"
+   ]
+  },
+  {
+   "id": "dkfz",
+   "type": "institution",
+   "name": "German Cancer Research Center (DKFZ)",
+   "subtitle": "Germany · Heidelberg · Helmholtz Association",
+   "search": "german cancer research center (dkfz)",
+   "summary": "Germany's largest cancer research center, covering the full chain from basic biology to clinical research.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Research focus",
+     "text": "Cancer causes, prevention, diagnosis and new treatments, with patient access through the National Center for Tumor Diseases."
+    }
+   ],
+   "sources": [
+    "dkfz.de",
+    "helmholtz.de"
+   ]
+  },
+  {
+   "id": "mdc",
+   "type": "institution",
+   "name": "Max Delbrück Center (MDC)",
+   "subtitle": "Germany · Berlin · Helmholtz Association",
+   "search": "max delbrück center (mdc)",
+   "summary": "A center for molecular medicine.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Research focus",
+     "text": "Molecular causes of cardiovascular, metabolic, cancer and neurological diseases."
+    }
+   ],
+   "sources": [
+    "mdc-berlin.de"
+   ]
+  },
+  {
+   "id": "hzi",
+   "type": "institution",
+   "name": "Helmholtz Centre for Infection Research (HZI)",
+   "subtitle": "Germany · Braunschweig · Helmholtz Association",
+   "search": "helmholtz centre for infection research (hzi)",
+   "summary": "Germany's Helmholtz center for infectious diseases.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Research focus",
+     "text": "Bacteria, viruses, immune responses and new anti-infective drugs."
+    }
+   ],
+   "sources": [
+    "helmholtz-hzi.de"
+   ]
+  },
+  {
+   "id": "helmholtz-munich",
+   "type": "institution",
+   "name": "Helmholtz Munich",
+   "subtitle": "Germany · Munich · Helmholtz Association",
+   "search": "helmholtz munich",
+   "summary": "A biomedical research center for environmental health.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Research focus",
+     "text": "Diabetes, obesity, allergies and chronic lung diseases, using AI and bioengineering."
+    }
+   ],
+   "sources": [
+    "helmholtz-munich.de"
+   ]
+  },
+  {
+   "id": "dzne",
+   "type": "institution",
+   "name": "German Center for Neurodegenerative Diseases (DZNE)",
+   "subtitle": "Germany · Bonn · Helmholtz Association",
+   "search": "german center for neurodegenerative diseases (dzne)",
+   "summary": "Germany's research center for dementia and related diseases.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Research focus",
+     "text": "Alzheimer's, Parkinson's and other neurodegenerative diseases, from basic research to patient care."
+    }
+   ],
+   "sources": [
+    "dzne.de"
+   ]
+  },
+  {
+   "id": "dzg",
+   "type": "institution",
+   "name": "German Centers for Health Research (DZG)",
+   "subtitle": "Germany · national network",
+   "search": "german centers for health research",
+   "summary": "Eight centers linking universities, hospitals and institutes to bring research to patients faster.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Research focus",
+     "text": "Cancer (DKTK), diabetes (DZD), heart (DZHK), infection (DZIF), lung (DZL), neurodegeneration (DZNE), mental health (DZPG), child and adolescent health (DZKJ)."
+    }
+   ],
+   "sources": [
+    "deutschezentren.de"
+   ]
+  },
+  {
+   "id": "pei",
+   "type": "institution",
+   "name": "Paul-Ehrlich-Institut (PEI)",
+   "subtitle": "Germany · Langen · federal agency",
+   "search": "paul ehrlich institut",
+   "summary": "Germany's federal institute for vaccines and biomedicines.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Research focus",
+     "text": "Authorises vaccines, antibodies, blood products and gene and cell therapies; approves clinical trials and monitors side effects."
+    }
+   ],
+   "sources": [
+    "pei.de"
+   ]
+  },
+  {
+   "id": "bfarm",
+   "type": "institution",
+   "name": "BfArM and DRKS",
+   "subtitle": "Germany · Bonn and Cologne · federal agency",
+   "search": "BfArM",
+   "summary": "Germany's Federal Institute for Drugs and Medical Devices, which also runs the German Clinical Trials Register (DRKS).",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Research focus",
+     "text": "Medicine and device regulation. DRKS is Germany's WHO-recognised trial registry, mostly for studies led by universities."
+    }
+   ],
+   "sources": [
+    "bfarm.de",
+    "drks.de"
+   ]
+  },
+  {
+   "id": "charite",
+   "type": "institution",
+   "name": "Charité – Universitätsmedizin Berlin",
+   "subtitle": "Germany · Berlin · university hospital",
+   "search": "charite berlin",
+   "summary": "One of Europe's largest university hospitals and a leading German medical faculty.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Research focus",
+     "text": "Clinical research and teaching across medicine."
+    }
+   ],
+   "sources": [
+    "charite.de"
+   ]
+  },
+  {
+   "id": "heidelberg",
+   "type": "institution",
+   "name": "Heidelberg University Hospital",
+   "subtitle": "Germany · Heidelberg · university hospital",
+   "search": "heidelberg university hospital",
+   "summary": "A leading German medical faculty and hospital; Newsweek ranked it 12th in the world in 2026.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Research focus",
+     "text": "Clinical research, cancer, and teaching."
+    }
+   ],
+   "sources": [
+    "heidelberg-university-hospital.com"
+   ]
+  },
+  {
+   "id": "icmr",
+   "type": "institution",
+   "name": "Indian Council of Medical Research (ICMR)",
+   "subtitle": "India · New Delhi",
+   "search": "ICMR India",
+   "summary": "India's apex body for biomedical research.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Research focus",
+     "text": "Biomedical and clinical studies; also runs the Clinical Trials Registry – India (CTRI)."
+    }
+   ],
+   "sources": [
+    "icmr.gov.in",
+    "ctri.nic.in"
+   ]
+  },
+  {
+   "id": "cdsco",
+   "type": "institution",
+   "name": "CDSCO",
+   "subtitle": "India · national regulator",
+   "search": "CDSCO",
+   "summary": "Central Drugs Standard Control Organisation.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Research focus",
+     "text": "Drug approvals and clinical trial permissions in India."
+    }
+   ],
+   "sources": [
+    "cdsco.gov.in"
+   ]
+  },
+  {
+   "id": "ccras",
+   "type": "institution",
+   "name": "CCRAS",
+   "subtitle": "India · Ministry of AYUSH",
+   "search": "CCRAS ayurveda",
+   "summary": "Central Council for Research in Ayurvedic Sciences.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Research focus",
+     "text": "Ayurveda research, medicinal plant surveys, monographs and toxicity studies."
+    }
+   ],
+   "sources": [
+    "ccras.nic.in"
+   ]
+  },
+  {
+   "id": "imppat",
+   "type": "institution",
+   "name": "IMPPAT",
+   "subtitle": "India · IMSc Chennai · database",
+   "search": "IMPPAT medicinal plants",
+   "summary": "A database of Indian medicinal plants and their phytochemicals.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Research focus",
+     "text": "Links plants to their chemical compounds and structures for research."
+    }
+   ],
+   "sources": [
+    "cb.imsc.res.in/imppat"
+   ]
+  },
+  {
+   "id": "enzymes",
+   "type": "biochem",
+   "name": "Enzymes",
+   "subtitle": "Proteins that speed up chemical reactions",
+   "search": "enzyme inhibitor drug",
+   "summary": "Enzymes make the body's chemical reactions happen fast enough to support life. Many medicines work by blocking one.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "What they do",
+     "text": "Each enzyme binds specific molecules (substrates) and converts them into products, without being used up itself."
+    },
+    {
+     "tag": "Official",
+     "title": "Medicines that block enzymes",
+     "text": "Aspirin and ibuprofen block COX enzymes; statins block HMG-CoA reductase; omeprazole blocks the stomach's proton pump; ACE inhibitors block angiotensin-converting enzyme."
+    }
+   ],
+   "sources": [
+    "Biochemistry textbooks",
+    "FDA labels"
+   ]
+  },
+  {
+   "id": "receptors",
+   "type": "biochem",
+   "name": "Receptors",
+   "subtitle": "Proteins that receive chemical signals",
+   "search": "receptor agonist antagonist",
+   "summary": "Receptors sit on or inside cells and respond when a hormone, neurotransmitter or medicine binds to them.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Agonists and antagonists",
+     "text": "An agonist switches a receptor on; an antagonist blocks it. How tightly a molecule binds is its affinity, often given as Kd. The Lab tab shows this with a simple model."
+    },
+    {
+     "tag": "Official",
+     "title": "Examples",
+     "text": "Salbutamol activates beta-2 receptors to open the airways; losartan blocks angiotensin receptors to lower blood pressure; ondansetron blocks 5-HT3 receptors to stop nausea."
+    }
+   ],
+   "sources": [
+    "Pharmacology textbooks",
+    "FDA labels"
+   ]
+  },
+  {
+   "id": "cyp450",
+   "type": "biochem",
+   "name": "Cytochrome P450 enzymes",
+   "subtitle": "CYP enzymes · drug metabolism",
+   "search": "cytochrome P450 drug interaction",
+   "summary": "A family of enzymes, mainly in the liver, that break down a large share of medicines. They cause many drug interactions.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "How interactions happen",
+     "text": "If one drug blocks a CYP enzyme, another drug that relies on it can build up to higher levels. If one drug speeds up the enzyme, another can be cleared too fast and work less well."
+    },
+    {
+     "tag": "Official",
+     "title": "Examples",
+     "text": "CYP3A4 handles many medicines. Clarithromycin and grapefruit juice can block it; rifampicin and St John's wort can speed it up. People also differ genetically, for example in CYP2D6 and CYP2C19 activity."
+    }
+   ],
+   "sources": [
+    "FDA drug interaction guidance",
+    "PharmGKB"
+   ]
+  },
+  {
+   "id": "central-dogma",
+   "type": "biochem",
+   "name": "DNA, RNA and proteins",
+   "subtitle": "The central dogma of molecular biology",
+   "search": "mRNA protein translation",
+   "summary": "Genes in DNA are copied into RNA, and RNA is read to build proteins. Most drug targets are proteins made this way.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "The flow",
+     "text": "DNA → messenger RNA (transcription) → protein (translation). A change in a gene can change the protein and cause disease."
+    },
+    {
+     "tag": "Research",
+     "title": "In medicine",
+     "text": "mRNA vaccines deliver instructions for one protein so the immune system learns to recognise it. Many cancer drugs target proteins made by mutated genes, such as KRAS or EGFR."
+    }
+   ],
+   "sources": [
+    "Molecular biology textbooks",
+    "PubMed"
+   ]
+  },
+  {
+   "id": "insulin-glucose",
+   "type": "biochem",
+   "name": "Insulin and blood sugar",
+   "subtitle": "Hormone signalling and metabolism",
+   "search": "insulin signaling glucose",
+   "summary": "Insulin, made by beta cells in the pancreas, lets cells take up glucose from the blood.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "How it works",
+     "text": "After a meal, insulin binds its receptor on muscle, fat and liver cells, which then take in and store glucose."
+    },
+    {
+     "tag": "Info",
+     "title": "In diabetes",
+     "text": "Type 1 diabetes: the body makes little or no insulin. Type 2: cells respond poorly to insulin and, over time, the pancreas makes less."
+    }
+   ],
+   "sources": [
+    "Physiology textbooks",
+    "ADA"
+   ]
+  },
+  {
+   "id": "bayer",
+   "type": "company",
+   "name": "Bayer",
+   "subtitle": "Germany · Leverkusen",
+   "search": "Bayer pharmaceutical",
+   "summary": "A German life-science company, known for registering the Aspirin trademark in 1899.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Prescription medicines, consumer health and crop science."
+    }
+   ],
+   "sources": [
+    "bayer.com"
+   ]
+  },
+  {
+   "id": "boehringer",
+   "type": "company",
+   "name": "Boehringer Ingelheim",
+   "subtitle": "Germany · Ingelheim am Rhein",
+   "search": "boehringer ingelheim",
+   "summary": "A family-owned research-based pharmaceutical company.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Human medicines, including respiratory, cardiometabolic and cancer research, and animal health."
+    }
+   ],
+   "sources": [
+    "boehringer-ingelheim.com"
+   ]
+  },
+  {
+   "id": "merck-kgaa",
+   "type": "company",
+   "name": "Merck KGaA",
+   "subtitle": "Germany · Darmstadt",
+   "search": "Merck KGaA Darmstadt",
+   "summary": "A science and technology company. It is separate from the US company Merck & Co., which is called MSD outside the US and Canada.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Healthcare, life-science research tools and electronics materials."
+    }
+   ],
+   "sources": [
+    "merckgroup.com"
+   ]
+  },
+  {
+   "id": "biontech",
+   "type": "company",
+   "name": "BioNTech",
+   "subtitle": "Germany · Mainz",
+   "search": "biontech",
+   "summary": "An mRNA biotechnology company that developed a COVID-19 vaccine with Pfizer. It acquired CureVac in December 2025.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "mRNA vaccines and cancer immunotherapies."
+    }
+   ],
+   "sources": [
+    "biontech.com"
+   ]
+  },
+  {
+   "id": "sun-pharma",
+   "type": "company",
+   "name": "Sun Pharmaceutical Industries",
+   "subtitle": "India · Mumbai",
+   "search": "Sun Pharmaceutical",
+   "summary": "One of India's largest pharmaceutical companies.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Generic and specialty medicines."
+    }
+   ],
+   "sources": [
+    "sunpharma.com"
+   ]
+  },
+  {
+   "id": "cipla",
+   "type": "company",
+   "name": "Cipla",
+   "subtitle": "India · Mumbai",
+   "search": "cipla",
+   "summary": "An Indian pharmaceutical company known for low-cost HIV medicines and respiratory inhalers.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Generics, respiratory, HIV and anti-infective medicines."
+    }
+   ],
+   "sources": [
+    "cipla.com"
+   ]
+  },
+  {
+   "id": "dr-reddys",
+   "type": "company",
+   "name": "Dr. Reddy's Laboratories",
+   "subtitle": "India · Hyderabad",
+   "search": "Dr Reddy's Laboratories",
+   "summary": "A major Indian maker of generic medicines and active pharmaceutical ingredients.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Generics, APIs and biosimilars."
+    }
+   ],
+   "sources": [
+    "drreddys.com"
+   ]
+  },
+  {
+   "id": "serum-institute",
+   "type": "company",
+   "name": "Serum Institute of India",
+   "subtitle": "India · Pune",
+   "search": "Serum Institute of India vaccine",
+   "summary": "The world's largest vaccine manufacturer by number of doses.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Vaccines for childhood immunisation and other diseases."
+    }
+   ],
+   "sources": [
+    "seruminstitute.com"
+   ]
+  },
+  {
+   "id": "pulse-oximeter",
+   "type": "device",
+   "name": "Pulse oximeter",
+   "subtitle": "Fingertip oxygen and pulse monitor",
+   "search": "pulse oximetry accuracy",
+   "summary": "Shines light through a finger to estimate blood oxygen saturation (SpO2) and pulse rate.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "What it measures",
+     "text": "SpO2, the percentage of haemoglobin carrying oxygen, and heart rate."
+    },
+    {
+     "tag": "Safety",
+     "title": "Accuracy limits",
+     "text": "Cold fingers, poor circulation, movement and nail polish can affect readings. The FDA has warned that pulse oximeters can overestimate oxygen levels in people with darker skin. Use trends and symptoms, not one number."
+    }
+   ],
+   "sources": [
+    "FDA safety communication"
+   ]
+  },
+  {
+   "id": "glucose-meter",
+   "type": "device",
+   "name": "Blood glucose meter",
+   "subtitle": "Fingerstick and continuous glucose monitoring",
+   "search": "blood glucose meter accuracy",
+   "summary": "Measures blood sugar for people with diabetes. Continuous monitors (CGMs) read glucose under the skin every few minutes.",
+   "sections": [
+    {
+     "tag": "Official",
+     "title": "Accuracy standard",
+     "text": "The ISO 15197 standard requires 95% of readings within ±15 mg/dL of the lab value below 100 mg/dL, or within ±15% above it."
+    },
+    {
+     "tag": "Info",
+     "title": "Good to know",
+     "text": "CGM readings lag behind blood readings by several minutes, especially when glucose changes quickly."
+    }
+   ],
+   "sources": [
+    "ISO 15197:2013",
+    "FDA"
+   ]
+  },
+  {
+   "id": "bp-monitor",
+   "type": "device",
+   "name": "Blood pressure monitor",
+   "subtitle": "Automatic cuff device",
+   "search": "home blood pressure monitor validation",
+   "summary": "Measures blood pressure. Upper-arm cuff devices are generally preferred over wrist devices.",
+   "sections": [
+    {
+     "tag": "Guideline",
+     "title": "Getting a reliable reading",
+     "text": "Use a clinically validated device and the right cuff size. Sit quietly for 5 minutes with the arm supported at heart level."
+    },
+    {
+     "tag": "Info",
+     "title": "Validated devices",
+     "text": "Independent lists of validated monitors exist, for example STRIDE BP and validatebp.org."
+    }
+   ],
+   "sources": [
+    "ESC and AHA guidance",
+    "STRIDE BP"
+   ]
+  },
+  {
+   "id": "thermometer",
+   "type": "device",
+   "name": "Thermometer",
+   "subtitle": "Digital, ear and forehead",
+   "search": "infrared thermometer accuracy",
+   "summary": "Measures body temperature. Accuracy depends on the type and how it is used.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Types",
+     "text": "Digital thermometers under the tongue, armpit or rectum; infrared ear and forehead devices are faster but more affected by technique and surroundings."
+    }
+   ],
+   "sources": [
+    "FDA"
+   ]
+  },
+  {
+   "id": "ecg",
+   "type": "device",
+   "name": "ECG (electrocardiogram)",
+   "subtitle": "Records the heart's electrical activity",
+   "search": "smartwatch ECG atrial fibrillation",
+   "summary": "Hospitals use 12-lead ECGs; some smartwatches record a single-lead ECG.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "What it shows",
+     "text": "Heart rhythm, rate and signs of damage or strain."
+    },
+    {
+     "tag": "Official",
+     "title": "Wearables",
+     "text": "Some smartwatch ECG features are FDA-cleared to detect atrial fibrillation. They cannot detect heart attacks and do not replace a 12-lead ECG."
+    }
+   ],
+   "sources": [
+    "FDA"
+   ]
+  }
+ ]
+}
