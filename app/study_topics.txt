@@ -1,0 +1,199 @@
+# RENK offline STUDY pack — medical research to study, no FDA lookups
+# GitHub saves for each topic: research counts, the 25 most relevant papers, 25 open-access
+# review articles (best for studying), and clinical trials. Add a line to add a topic.
+
+# --- How the body works ---
+cardiac physiology
+renal physiology
+respiratory physiology
+liver function
+gut microbiota
+immune system
+innate immunity
+adaptive immunity
+inflammation
+wound healing
+blood coagulation
+hormone regulation
+thyroid hormone
+insulin signaling
+circadian rhythm
+sleep physiology
+neurotransmitters
+synaptic plasticity
+blood-brain barrier
+bone metabolism
+muscle physiology
+pregnancy physiology
+child development
+aging biology
+
+# --- Pharmacology to study ---
+pharmacokinetics
+drug metabolism cytochrome P450
+drug-drug interactions
+pharmacogenomics
+adverse drug reactions
+antimicrobial resistance
+antibiotic stewardship
+vaccine immunology
+mRNA vaccines
+monoclonal antibodies
+gene therapy
+CAR-T cell therapy
+drug discovery
+drug repurposing
+clinical trial design
+evidence-based medicine
+placebo effect
+pain management
+opioid use disorder
+polypharmacy elderly
+
+# --- Diseases and public health ---
+hypertension
+type 2 diabetes
+type 1 diabetes
+gestational diabetes
+obesity
+metabolic syndrome
+fatty liver disease
+asthma
+COPD
+tuberculosis
+multidrug-resistant tuberculosis
+malaria
+artemisinin resistance
+dengue
+chikungunya
+Japanese encephalitis
+HIV
+hepatitis B
+hepatitis C
+pneumonia
+influenza
+COVID-19
+long COVID
+typhoid fever
+cholera
+diarrhoeal disease children
+melioidosis
+leptospirosis
+rabies
+helminth infection
+sepsis
+neonatal sepsis
+maternal health
+malnutrition
+stunting
+anaemia
+iron deficiency
+thalassemia
+sickle cell disease
+depression
+anxiety disorder
+post-traumatic stress disorder
+schizophrenia
+bipolar disorder
+dementia
+Alzheimer disease
+Parkinson disease
+epilepsy
+migraine
+stroke
+heart failure
+atrial fibrillation
+coronary artery disease
+rheumatic heart disease
+chronic kidney disease
+liver cirrhosis
+breast cancer
+lung cancer
+colorectal cancer
+liver cancer
+cervical cancer
+HPV vaccination
+prostate cancer
+stomach cancer
+leukemia
+lymphoma
+cancer immunotherapy
+osteoporosis
+rheumatoid arthritis
+osteoarthritis
+gout
+psoriasis
+atopic dermatitis
+hypothyroidism
+ADHD
+autism spectrum disorder
+snakebite envenoming
+road traffic injury
+tobacco smoking
+alcohol use disorder
+air pollution health
+climate change health
+universal health coverage
+primary health care
+
+# --- Nutrition, vegetables and foods ---
+sulforaphane
+lycopene
+beta-carotene
+vitamin A deficiency
+vitamin D deficiency
+vitamin B12 deficiency
+folate pregnancy
+iodine deficiency
+dietary fibre
+Mediterranean diet
+plant-based diet
+dietary nitrate beetroot
+quercetin
+flavonoids health
+polyphenols
+legume consumption
+soy isoflavones
+Momordica charantia
+Moringa oleifera
+fermented foods
+probiotics
+green tea catechins
+coffee health
+dark chocolate cocoa flavanols
+
+# --- Herbs, traditional medicine and extraction ---
+curcumin
+curcumin bioavailability piperine
+Withania somnifera
+Ocimum sanctum tulsi
+Azadirachta indica neem
+Tinospora cordifolia
+Bacopa monnieri
+Phyllanthus emblica amla
+Centella asiatica
+Andrographis paniculata
+Zingiber officinale ginger
+garlic allicin
+cinnamon blood sugar
+fenugreek
+black seed Nigella sativa
+Panax ginseng
+Astragalus membranaceus
+Glycyrrhiza licorice
+Artemisia annua
+artemisinin
+berberine
+resveratrol
+lemongrass Cymbopogon
+traditional Chinese medicine
+Ayurveda
+Kampo medicine
+herb-drug interactions
+herbal medicine safety
+herbal product contamination
+phytochemical extraction
+supercritical CO2 extraction
+essential oils
+natural product drug discovery
+ethnopharmacology

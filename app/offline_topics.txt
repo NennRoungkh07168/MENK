@@ -1,0 +1,125 @@
+# RENK offline research pack — topics
+# One topic per line. GitHub downloads real results for each (papers, trials, FDA records,
+# side effects, chemistry) and builds them into the app so they work with no internet.
+# Add or remove lines, push, then run "Build offline research pack" (see README).
+# More topics = bigger app. About 200 topics gives an app of roughly 100-200 MB.
+Aspirin
+acetaminophen
+Ibuprofen
+Naproxen
+Diclofenac
+Amoxicillin
+amoxicillin clavulanate
+Azithromycin
+Doxycycline
+Ciprofloxacin
+Metformin
+Glipizide
+Insulin
+Atorvastatin
+Rosuvastatin
+Amlodipine
+Lisinopril
+Losartan
+Hydrochlorothiazide
+Furosemide
+Omeprazole
+Pantoprazole
+Famotidine
+Ondansetron
+Fluconazole
+acyclovir
+Oseltamivir
+Warfarin
+Apixaban
+Clopidogrel
+Heparin
+Prednisone
+Dexamethasone
+Sertraline
+Fluoxetine
+Escitalopram
+Diazepam
+Levothyroxine
+albuterol
+Montelukast
+Loratadine
+Cetirizine
+Morphine
+Tramadol
+Lidocaine
+Propofol
+Methotrexate
+Hydroxychloroquine
+Tacrolimus
+Adalimumab
+artemether lumefantrine
+type 2 diabetes
+high blood pressure
+asthma
+tuberculosis (tb)
+malaria
+dengue
+pancreatic cancer
+alzheimer disease
+curcumin
+ashwagandha
+ginger
+garlic
+neem
+artemisinin
+Panax ginseng
+Astragalus membranaceus
+glycyrrhizin licorice
+ephedra ephedrine
+hypertension
+type 1 diabetes
+COPD
+tuberculosis
+HIV
+hepatitis B
+hepatitis C
+pneumonia
+influenza
+COVID-19
+typhoid fever
+cholera
+sepsis
+depression
+anxiety disorder
+schizophrenia
+bipolar disorder
+epilepsy
+migraine
+stroke
+heart failure
+atrial fibrillation
+coronary artery disease
+chronic kidney disease
+liver cirrhosis
+breast cancer
+lung cancer
+colorectal cancer
+liver cancer
+cervical cancer
+prostate cancer
+leukemia
+lymphoma
+anemia
+thalassemia
+osteoporosis
+rheumatoid arthritis
+osteoarthritis
+gout
+psoriasis
+atopic dermatitis
+hypothyroidism
+obesity
+Parkinson disease
+ADHD
+Helicobacter pylori
+GERD
+peptic ulcer
+urinary tract infection
+otitis media
+malnutrition

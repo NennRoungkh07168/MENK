@@ -44,6 +44,8 @@ enum class LibKind(val type: String, val label: String, val blurb: String) {
     Medicines("medicine", "Medicines", "Uses, how they work, risks and interactions"),
     Diseases("disease", "Diseases", "Signs, diagnosis and established treatments"),
     Herbs("herb", "Herbs & plants", "Traditional use kept separate from human evidence"),
+    Vegetables("vegetable", "Vegetables & foods", "Nutrients, plant compounds and what the evidence says"),
+    Extraction("extraction", "Herb & plant extraction", "How plants become teas, tinctures, oils and extracts"),
     Biochem("biochem", "Biochemistry", "Enzymes, receptors and the molecules drugs act on"),
     Companies("company", "Pharma companies", "Germany, India, China, Spain, Russia"),
     Institutions("institution", "Research institutes & labs", "Research centres and trial registries worldwide"),

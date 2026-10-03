@@ -94,28 +94,44 @@ object Api {
 
     private fun enc(s: String): String = URLEncoder.encode(s, "UTF-8")
 
-    /** HTTP status (-1 = no connection) and parsed JSON body when successful. */
+    /** Optional free openFDA key, used only when building the offline pack (raises FDA rate limits). */
+    @Volatile var apiKey: String? = null
+
+    private const val NOT_FOUND = "NOTFOUND"
+
+    /**
+     * HTTP status (-1 = no connection) and parsed JSON body when successful.
+     * Every answer is saved, keyed by URL, so the same search works offline later.
+     * "Not found" answers are saved too, so offline the app can still say "not found".
+     */
     private fun request(url: String): Pair<Int, JSONObject?> = try {
-        val conn = URL(url).openConnection() as HttpURLConnection
+        val realUrl = if (apiKey != null && url.startsWith("https://api.fda.gov")) "$url&api_key=$apiKey" else url
+        val conn = URL(realUrl).openConnection() as HttpURLConnection
         conn.connectTimeout = 15000
         conn.readTimeout = 30000
         conn.setRequestProperty("Accept", "application/json")
-        conn.setRequestProperty("User-Agent", "RENK/1.01 (Android; evidence research app)")
+        conn.setRequestProperty("User-Agent", "RENK/1.02 (Android; evidence research app)")
         val code = conn.responseCode
         val body = if (code in 200..299) conn.inputStream.bufferedReader().use { it.readText() } else null
         conn.disconnect()
         val json = body?.let { JSONObject(it) }
         if (body != null && json != null) {
             try { cacheFile(url)?.writeText(body) } catch (e2: Exception) { }
+        } else if (code == 404) {
+            try { cacheFile(url)?.writeText(NOT_FOUND) } catch (e2: Exception) { }
         }
         code to json
     } catch (e: Exception) {
-        // No connection: fall back to the saved copy from an earlier search, if there is one.
-        val saved = try { cacheFile(url)?.takeIf { it.exists() }?.readText()?.let { JSONObject(it) } } catch (e2: Exception) { null }
-        if (saved != null) {
-            cacheHits.incrementAndGet()
-            200 to saved
-        } else -1 to null
+        // No connection: use the saved copy (from an earlier search or the built-in offline pack).
+        val text = try { cacheFile(url)?.takeIf { it.exists() }?.readText() } catch (e2: Exception) { null }
+        when {
+            text == null -> -1 to null
+            text == NOT_FOUND -> { cacheHits.incrementAndGet(); 404 to null }
+            else -> {
+                val saved = try { JSONObject(text) } catch (e2: Exception) { null }
+                if (saved != null) { cacheHits.incrementAndGet(); 200 to saved } else -1 to null
+            }
+        }
     }
 
     private fun get(url: String): JSONObject? = request(url).second
@@ -163,8 +179,13 @@ object Api {
     // ----- Literature: Europe PMC (includes PubMed) -----
 
     /** country = null for worldwide, or a country name matched against author affiliations. */
-    fun papers(q: String, country: String? = null): List<Paper>? {
-        val query = if (country == null) q else "($q) AND AFF:\"$country\""
+    /**
+     * reviews = true: open-access review articles only, the best papers for studying a topic
+     * (they summarise the field and can be read free in full).
+     */
+    fun papers(q: String, country: String? = null, reviews: Boolean = false): List<Paper>? {
+        var query = if (country == null) q else "($q) AND AFF:\"$country\""
+        if (reviews) query = "($query) AND PUB_TYPE:\"Review\" AND OPEN_ACCESS:y"
         val root = get(
             "https://www.ebi.ac.uk/europepmc/webservices/rest/search" +
                 "?query=${enc(query)}&format=json&resultType=core&pageSize=25"
@@ -300,7 +321,7 @@ object Api {
             .openConnection() as HttpURLConnection
         conn.connectTimeout = 15000
         conn.readTimeout = 30000
-        conn.setRequestProperty("User-Agent", "RENK/1.01 (Android; evidence research app)")
+        conn.setRequestProperty("User-Agent", "RENK/1.02 (Android; evidence research app)")
         val bytes = if (conn.responseCode in 200..299) conn.inputStream.use { it.readBytes() } else null
         conn.disconnect()
         if (bytes != null) {

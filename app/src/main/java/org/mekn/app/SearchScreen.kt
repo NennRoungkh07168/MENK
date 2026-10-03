@@ -74,15 +74,31 @@ fun SearchScreen(query: String, onBack: () -> Unit) {
     var recalls by remember(query) { mutableStateOf<Load<Recalls>>(Load.Loading) }
     var sideFx by remember(query) { mutableStateOf<Load<SideEffectReports>>(Load.Loading) }
     var paperCountry by remember(query) { mutableStateOf("Worldwide") }
+    var studyMode by remember(query) { mutableStateOf(false) }   // false = most relevant, true = review articles
     var trialCountry by remember(query) { mutableStateOf("Worldwide") }
     val hitsAtStart = remember(query) { Api.cacheHits.get() }
     var offline by remember(query) { mutableStateOf(false) }
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
 
+    // "Download PDF": the user picks where to save (e.g. Downloads) to read or share the report anywhere.
+    val downloader = rememberLauncherForActivityResult(ActivityResultContracts.CreateDocument("application/pdf")) { uri ->
+        if (uri != null) {
+            val sections = buildReport(query, map, papers, if (studyMode) "review articles, $paperCountry" else paperCountry, trials, trialCountry, approvals, sideFx, label, market, recalls, chem)
+            scope.launch {
+                val ok = withContext(Dispatchers.IO) {
+                    PdfExport.write(context, uri, "RENK research report: $query", sections) &&
+                        PdfExport.saveToLibrary(context, query, "RENK research report: $query", sections) != null
+                }
+                Toast.makeText(context, if (ok) "PDF downloaded, and kept in Evidence → Saved PDFs" else "Couldn't save the PDF",
+                    Toast.LENGTH_LONG).show()
+            }
+        }
+    }
+
     // PDF button: saves a report into the Evidence library (works offline, open it any time from the Evidence tab).
     val savePdf: () -> Unit = {
-        val sections = buildReport(query, map, papers, paperCountry, trials, trialCountry, approvals, sideFx, label, market, recalls, chem)
+        val sections = buildReport(query, map, papers, if (studyMode) "review articles, $paperCountry" else paperCountry, trials, trialCountry, approvals, sideFx, label, market, recalls, chem)
         scope.launch {
             val f = withContext(Dispatchers.IO) { PdfExport.saveToLibrary(context, query, "RENK research report: $query", sections) }
             Toast.makeText(context, if (f != null) "Saved to Evidence → Saved PDFs" else "Couldn't save the PDF", Toast.LENGTH_LONG).show()
@@ -91,10 +107,10 @@ fun SearchScreen(query: String, onBack: () -> Unit) {
 
     // Sources load in parallel; each card fills in as soon as its data arrives.
     LaunchedEffect(query) { map = loaded(withContext(Dispatchers.IO) { Api.evidenceMap(query) }) }
-    LaunchedEffect(query, paperCountry) {
+    LaunchedEffect(query, paperCountry, studyMode) {
         papers = Load.Loading
         val c = paperCountry.takeIf { it != "Worldwide" }
-        papers = loaded(withContext(Dispatchers.IO) { Api.papers(query, c) })
+        papers = loaded(withContext(Dispatchers.IO) { Api.papers(query, c, studyMode) })
     }
     LaunchedEffect(query, trialCountry) {
         trials = Load.Loading
@@ -155,12 +171,28 @@ fun SearchScreen(query: String, onBack: () -> Unit) {
                 when (tab) {
                     ResultTab.Summary -> {
                         if (offline) item { OfflineBanner() }
+                        item {
+                            PdfCard(
+                                onSave = savePdf,
+                                onDownload = { downloader.launch(PdfExport.fileName(query)) }
+                            )
+                        }
                         item { SummaryIntro(query) }
                         item { EvidenceMapCard(map) }
                         item { TrialCountCard(trials) }
                         item { FoundCard(compound, approvals, market, label) }
                     }
                     ResultTab.Papers -> {
+                      item {
+                          Segmented(
+                              options = listOf("Most relevant", "Review articles to study"),
+                              selected = if (studyMode) 1 else 0,
+                              onSelect = { studyMode = it == 1 }
+                          )
+                      }
+                      if (studyMode) item {
+                          Note("Review articles summarise a whole topic and are free to read in full: the best place to start studying.")
+                      }
                       item { CountryChips(paperCountry) { paperCountry = it } }
                       item { Note("Country filters by the authors' institutions.") }
                       when (val p = papers) {
@@ -394,7 +426,24 @@ private fun TrialCard(t: Trial) {
     }
 }
 
-// ---------- Side effects, prescribing, offline, country filter ----------
+// ---------- PDF, side effects, prescribing, offline, country filter ----------
+
+@Composable
+private fun PdfCard(onSave: () -> Unit, onDownload: () -> Unit) {
+    Surface(color = Color(0xFFE6ECF4), shape = RoundedCornerShape(10.dp), modifier = Modifier.fillMaxWidth()) {
+        Column(Modifier.padding(14.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+            Text("Get these results as a PDF", fontWeight = FontWeight.Bold, fontSize = 15.sp, color = Mekn.Ink)
+            Text("A full report of every tab: research counts, papers, trials, side effects, prescribing information, " +
+                "approvals and chemistry, with links to the sources.", fontSize = 13.sp, lineHeight = 18.sp, color = Body)
+            Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                Button(onClick = onDownload, shape = RoundedCornerShape(8.dp),
+                    colors = ButtonDefaults.buttonColors(containerColor = Mekn.Accent)) { Text("Download PDF") }
+                OutlinedButton(onClick = onSave, shape = RoundedCornerShape(8.dp)) { Text("Keep in RENK") }
+            }
+            Text("Tip: let all tabs finish loading first, so the report is complete.", fontSize = 12.sp, color = Mekn.Muted)
+        }
+    }
+}
 
 @Composable
 private fun OfflineBanner() {
@@ -908,7 +957,9 @@ private fun LoadingRow(text: String) {
 
 @Composable
 private fun FailedRow() {
-    Text("Couldn't connect. Check your internet connection and search again.", fontSize = 14.sp, color = Mekn.Preclinical)
+    Text("Not available right now. If you're offline, this topic isn't in the offline research pack " +
+        "(Explore → Offline research pack lists what is). Connect to the internet to search it.",
+        fontSize = 14.sp, lineHeight = 20.sp, color = Mekn.Preclinical)
 }
 
 @Composable

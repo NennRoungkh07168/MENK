@@ -64,6 +64,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         Api.init(filesDir)   // saved copies of searches, so they work offline
+        // Unpack the built-in offline research pack (first launch / new pack only), off the main thread.
+        Thread { OfflinePack.install(applicationContext) }.start()
         setContent { MeknApp() }
     }
 }
@@ -155,7 +157,7 @@ fun HomeScreen(onScan: () -> Unit, onOpen: (Screen) -> Unit, onExplore: (String)
             Column {
                 Text("RENK", color = Mekn.Ground, fontFamily = Mekn.Display,
                     fontWeight = FontWeight.SemiBold, fontSize = 34.sp)
-                Text("Research Evidence Network of Knowledge · v1.01", color = Mekn.OnInkMuted, fontSize = 13.sp)
+                Text("Research Evidence Network of Knowledge · v1.02", color = Mekn.OnInkMuted, fontSize = 13.sp)
             }
             Text("Search diseases, medicines, herbs", color = Mekn.OnInkMuted,
                 fontSize = 12.sp, fontWeight = FontWeight.SemiBold)

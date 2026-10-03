@@ -2603,6 +2603,546 @@
    "sources": [
     "WHO Guide to Good Prescribing"
    ]
+  },
+  {
+   "id": "broccoli",
+   "type": "vegetable",
+   "name": "Broccoli and cabbage family",
+   "subtitle": "Cruciferous vegetables · Brassica",
+   "country": "",
+   "search": "sulforaphane",
+   "summary": "Broccoli, cabbage, cauliflower, kale and bok choy share a family of sulphur compounds that are widely studied.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Nutrients",
+     "text": "Vitamin C, vitamin K, folate, fibre and potassium."
+    },
+    {
+     "tag": "Info",
+     "title": "Key plant compound",
+     "text": "They contain glucosinolates. When the vegetable is chopped or chewed, the enzyme myrosinase turns glucoraphanin into sulforaphane."
+    },
+    {
+     "tag": "Info",
+     "title": "Preparation",
+     "text": "Light steaming keeps more myrosinase activity than long boiling, so more sulforaphane can form."
+    },
+    {
+     "tag": "Lab",
+     "title": "Laboratory research",
+     "text": "Sulforaphane switches on the body's own detoxifying and antioxidant enzymes in cell and animal studies."
+    },
+    {
+     "tag": "Research",
+     "title": "Human studies",
+     "text": "Observational studies link eating more cruciferous vegetables with lower risk of some cancers, but they cannot prove cause and effect."
+    }
+   ],
+   "sources": [
+    "PubMed",
+    "USDA FoodData Central"
+   ]
+  },
+  {
+   "id": "tomato",
+   "type": "vegetable",
+   "name": "Tomato",
+   "subtitle": "Solanum lycopersicum",
+   "country": "",
+   "search": "lycopene",
+   "summary": "A major source of lycopene, the red carotenoid pigment.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Nutrients",
+     "text": "Vitamin C, potassium, folate and vitamin K."
+    },
+    {
+     "tag": "Info",
+     "title": "Key plant compound",
+     "text": "Lycopene, a carotenoid antioxidant."
+    },
+    {
+     "tag": "Info",
+     "title": "Preparation",
+     "text": "Lycopene is fat-soluble: the body absorbs more from cooked tomatoes eaten with a little oil than from raw tomatoes."
+    },
+    {
+     "tag": "Research",
+     "title": "Human studies",
+     "text": "Links between tomato or lycopene intake and lower prostate cancer risk come from observational studies with mixed results."
+    }
+   ],
+   "sources": [
+    "PubMed",
+    "USDA FoodData Central"
+   ]
+  },
+  {
+   "id": "leafy-greens",
+   "type": "vegetable",
+   "name": "Spinach and leafy greens",
+   "subtitle": "Spinach, amaranth, morning glory, kale",
+   "country": "",
+   "search": "leafy green vegetables nitrate",
+   "summary": "Dark leafy greens are among the most nutrient-dense foods.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Nutrients",
+     "text": "Folate, vitamin K, vitamin A (as beta-carotene), lutein, magnesium and dietary nitrate."
+    },
+    {
+     "tag": "Info",
+     "title": "Iron",
+     "text": "Spinach contains iron, but oxalate reduces how much the body absorbs. Vitamin C in the same meal improves absorption of plant iron."
+    },
+    {
+     "tag": "Safety",
+     "title": "Medicine interaction",
+     "text": "Leafy greens are rich in vitamin K, which affects warfarin. People on warfarin should keep their intake steady rather than avoid greens."
+    }
+   ],
+   "sources": [
+    "USDA FoodData Central",
+    "PubMed"
+   ]
+  },
+  {
+   "id": "carrot-sweet-potato",
+   "type": "vegetable",
+   "name": "Carrot and orange sweet potato",
+   "subtitle": "Beta-carotene sources",
+   "country": "",
+   "search": "beta-carotene vitamin A deficiency",
+   "summary": "Orange vegetables supply beta-carotene, which the body converts to vitamin A.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Function",
+     "text": "Vitamin A is needed for vision in dim light, the immune system and healthy skin."
+    },
+    {
+     "tag": "Official",
+     "title": "Public health",
+     "text": "Vitamin A deficiency causes night blindness and raises child deaths from infection. Orange-fleshed sweet potato is promoted in Africa and Asia to prevent it."
+    },
+    {
+     "tag": "Info",
+     "title": "Preparation",
+     "text": "As with lycopene, beta-carotene is absorbed better with a little fat."
+    }
+   ],
+   "sources": [
+    "WHO",
+    "PubMed"
+   ]
+  },
+  {
+   "id": "beetroot",
+   "type": "vegetable",
+   "name": "Beetroot",
+   "subtitle": "Beta vulgaris · dietary nitrate",
+   "country": "",
+   "search": "beetroot nitrate blood pressure",
+   "summary": "Rich in nitrate, which the body turns into nitric oxide, a signal that relaxes blood vessels.",
+   "sections": [
+    {
+     "tag": "Research",
+     "title": "Human studies",
+     "text": "Trials of beetroot juice show small, short-term falls in blood pressure and effects on exercise performance."
+    },
+    {
+     "tag": "Info",
+     "title": "Good to know",
+     "text": "Red or pink urine after eating beetroot (beeturia) is harmless."
+    }
+   ],
+   "sources": [
+    "PubMed"
+   ]
+  },
+  {
+   "id": "onion",
+   "type": "vegetable",
+   "name": "Onion",
+   "subtitle": "Allium cepa",
+   "country": "",
+   "search": "quercetin onion",
+   "summary": "A source of the flavonoid quercetin and of prebiotic fibres.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Plant compounds",
+     "text": "Quercetin (flavonoid), sulphur compounds and fructans (inulin-type fibres) that feed gut bacteria."
+    },
+    {
+     "tag": "Info",
+     "title": "Good to know",
+     "text": "Fructans can trigger symptoms in people with irritable bowel syndrome (part of the FODMAP group)."
+    }
+   ],
+   "sources": [
+    "PubMed"
+   ]
+  },
+  {
+   "id": "legumes",
+   "type": "vegetable",
+   "name": "Beans, lentils and soy",
+   "subtitle": "Legumes · pulses",
+   "country": "",
+   "search": "legume consumption cardiovascular",
+   "summary": "Affordable sources of protein, fibre, folate and minerals.",
+   "sections": [
+    {
+     "tag": "Research",
+     "title": "Human studies",
+     "text": "Diets rich in legumes are associated with lower cardiovascular risk and better blood sugar control."
+    },
+    {
+     "tag": "Info",
+     "title": "Soy",
+     "text": "Soy contains isoflavones, plant compounds with weak oestrogen-like activity."
+    },
+    {
+     "tag": "Safety",
+     "title": "Preparation",
+     "text": "Raw or undercooked red kidney beans contain a toxin (phytohaemagglutinin) that causes severe vomiting. Soak and boil them properly."
+    }
+   ],
+   "sources": [
+    "PubMed",
+    "FAO"
+   ]
+  },
+  {
+   "id": "bitter-melon",
+   "type": "vegetable",
+   "name": "Bitter melon",
+   "subtitle": "Momordica charantia · bitter gourd",
+   "country": "Asia",
+   "search": "Momordica charantia diabetes",
+   "summary": "A vegetable used across Asia, including Cambodia and India, as a traditional remedy for diabetes.",
+   "sections": [
+    {
+     "tag": "Traditional",
+     "title": "Traditional use",
+     "text": "Eaten or taken as juice to lower blood sugar."
+    },
+    {
+     "tag": "Research",
+     "title": "Human studies",
+     "text": "Small trials show mixed, mostly modest effects on blood sugar. It is not a substitute for diabetes medicines."
+    },
+    {
+     "tag": "Safety",
+     "title": "Safety",
+     "text": "Can add to the effect of diabetes medicines and cause low blood sugar. Avoid in pregnancy."
+    }
+   ],
+   "sources": [
+    "PubMed",
+    "NCCIH (US)"
+   ]
+  },
+  {
+   "id": "moringa",
+   "type": "vegetable",
+   "name": "Moringa leaves",
+   "subtitle": "Moringa oleifera · drumstick tree",
+   "country": "",
+   "search": "Moringa oleifera",
+   "summary": "Nutrient-dense leaves used in nutrition programmes in Africa and Asia.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Nutrients",
+     "text": "Leaves provide vitamin A, vitamin C, calcium, iron and protein."
+    },
+    {
+     "tag": "Research",
+     "title": "Human studies",
+     "text": "Good evidence for disease treatment is limited; most research is in labs and animals."
+    }
+   ],
+   "sources": [
+    "PubMed",
+    "FAO"
+   ]
+  },
+  {
+   "id": "grapefruit",
+   "type": "vegetable",
+   "name": "Grapefruit (food–medicine interaction)",
+   "subtitle": "Citrus paradisi",
+   "country": "",
+   "search": "grapefruit drug interaction",
+   "summary": "The best-known example of a food changing how medicines work.",
+   "sections": [
+    {
+     "tag": "Official",
+     "title": "How it interacts",
+     "text": "Compounds called furanocoumarins block the CYP3A4 enzyme in the gut, so some medicines reach much higher levels in the blood."
+    },
+    {
+     "tag": "Safety",
+     "title": "Medicines affected",
+     "text": "Examples include some statins (such as simvastatin), some blood pressure medicines (such as felodipine) and some others. Labels warn when grapefruit should be avoided."
+    }
+   ],
+   "sources": [
+    "FDA",
+    "PubMed"
+   ]
+  },
+  {
+   "id": "infusion-decoction",
+   "type": "extraction",
+   "name": "Teas: infusion and decoction",
+   "subtitle": "Water extraction · the oldest method",
+   "country": "",
+   "search": "herbal decoction extraction",
+   "summary": "Most traditional herbal medicines, in Ayurveda, Chinese medicine and folk use, are water extracts.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Infusion",
+     "text": "Hot water is poured over soft parts such as leaves and flowers, then left to steep, usually 5–10 minutes."
+    },
+    {
+     "tag": "Info",
+     "title": "Decoction",
+     "text": "Hard parts such as roots, bark and seeds are simmered in water for longer, often 15–30 minutes or more. Ayurvedic kashaya and many Chinese herbal formulas are decoctions."
+    },
+    {
+     "tag": "Info",
+     "title": "What water extracts",
+     "text": "Water-soluble compounds such as many tannins, glycosides and minerals. Volatile oils can escape with steam, so covering the pot keeps more."
+    },
+    {
+     "tag": "Safety",
+     "title": "Good to know",
+     "text": "A tea's strength varies with the plant, amount and time, so the dose is never exact."
+    }
+   ],
+   "sources": [
+    "WHO guidelines on herbal medicines",
+    "Pharmacognosy textbooks"
+   ]
+  },
+  {
+   "id": "maceration-tincture",
+   "type": "extraction",
+   "name": "Maceration and tinctures",
+   "subtitle": "Soaking in alcohol and water",
+   "country": "",
+   "search": "plant tincture ethanol extraction",
+   "summary": "Soaking plant material at room temperature in a solvent, often a mix of alcohol and water.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "How it works",
+     "text": "The plant is soaked for days or weeks, then strained. Alcohol–water mixtures dissolve both water-soluble and less water-soluble compounds."
+    },
+    {
+     "tag": "Info",
+     "title": "Why alcohol",
+     "text": "Many compounds, such as curcumin and many alkaloids and flavonoids, dissolve better in alcohol than in water. Alcohol also preserves the extract."
+    },
+    {
+     "tag": "Safety",
+     "title": "Safety",
+     "text": "Tinctures contain alcohol, which matters for children, pregnancy, liver disease and people taking certain medicines."
+    }
+   ],
+   "sources": [
+    "Pharmacognosy textbooks"
+   ]
+  },
+  {
+   "id": "oil-infusion",
+   "type": "extraction",
+   "name": "Oil infusions and fat-soluble compounds",
+   "subtitle": "Like dissolves like",
+   "country": "",
+   "search": "curcumin piperine bioavailability",
+   "summary": "Some plant compounds dissolve in fat, not water, which changes how to prepare and absorb them.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Examples",
+     "text": "Curcumin from turmeric and carotenoids such as lycopene and beta-carotene dissolve in oils and fats. Cooking turmeric in oil or ghee, as Indian cooking does, helps."
+    },
+    {
+     "tag": "Research",
+     "title": "Absorption",
+     "text": "Piperine from black pepper has been shown in human studies to increase how much curcumin is absorbed."
+    },
+    {
+     "tag": "Safety",
+     "title": "Botulism risk",
+     "text": "Fresh garlic or herbs kept in oil at room temperature can grow the bacterium that causes botulism. Refrigerate homemade herb oils and use them within a few days."
+    }
+   ],
+   "sources": [
+    "PubMed",
+    "USDA food safety"
+   ]
+  },
+  {
+   "id": "steam-distillation",
+   "type": "extraction",
+   "name": "Steam distillation and essential oils",
+   "subtitle": "Volatile oils",
+   "country": "",
+   "search": "essential oil poisoning children",
+   "summary": "Steam passes through the plant, carries off the volatile oils, and is cooled so the oil separates from the water.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "What it gives",
+     "text": "Highly concentrated essential oils, such as those from peppermint, eucalyptus, lavender, clove and lemongrass."
+    },
+    {
+     "tag": "Safety",
+     "title": "Concentrated and toxic",
+     "text": "Many essential oils are poisonous if swallowed, especially for children: eucalyptus, camphor and wintergreen (methyl salicylate) have caused serious poisonings. Keep them locked away and dilute them before putting them on skin."
+    }
+   ],
+   "sources": [
+    "Poison control centres",
+    "PubMed"
+   ]
+  },
+  {
+   "id": "industrial-extraction",
+   "type": "extraction",
+   "name": "Solvent and supercritical CO₂ extraction",
+   "subtitle": "How industry makes extracts",
+   "country": "",
+   "search": "supercritical CO2 extraction plant",
+   "summary": "Commercial extracts are made with solvents and controlled equipment.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Solvent extraction",
+     "text": "Industry uses solvents such as ethanol or hexane, then removes them. Residue limits are set by regulators."
+    },
+    {
+     "tag": "Info",
+     "title": "Supercritical CO₂",
+     "text": "Above about 31 °C and 74 bar, carbon dioxide behaves like both a gas and a liquid and dissolves many plant compounds, then evaporates leaving no residue. It is used to decaffeinate coffee and make hop extracts."
+    },
+    {
+     "tag": "Safety",
+     "title": "Not for home use",
+     "text": "Flammable solvents such as hexane, butane or petrol cause fires and explosions. Never attempt solvent extraction at home."
+    }
+   ],
+   "sources": [
+    "Food chemistry textbooks"
+   ]
+  },
+  {
+   "id": "standardized-extracts",
+   "type": "extraction",
+   "name": "Standardised extracts and quality",
+   "subtitle": "Why two products of the same herb differ",
+   "country": "",
+   "search": "herbal product heavy metal contamination",
+   "summary": "A herb's compounds vary with species, growing conditions, plant part, harvest time and extraction.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Standardisation",
+     "text": "Many extracts are standardised to a marker compound, for example '95% curcuminoids'. This makes batches more consistent, but the marker may not be the only active compound."
+    },
+    {
+     "tag": "Info",
+     "title": "Extract vs food",
+     "text": "An extract can be many times stronger than the food or traditional tea, which changes both effects and side effects."
+    },
+    {
+     "tag": "Safety",
+     "title": "Contamination",
+     "text": "A 2008 US study found lead, mercury or arsenic in about one in five Ayurvedic products bought online. Choose products tested by an independent laboratory."
+    }
+   ],
+   "sources": [
+    "JAMA 2008 (Saper et al.)",
+    "WHO quality guidelines"
+   ]
+  },
+  {
+   "id": "lab-identification",
+   "type": "extraction",
+   "name": "How labs find the active compounds",
+   "subtitle": "From plant to molecule",
+   "country": "",
+   "search": "phytochemical isolation HPLC",
+   "summary": "Researchers extract, separate and identify plant compounds, then test what they do.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "1. Extract",
+     "text": "Plant material is extracted with solvents of different polarity."
+    },
+    {
+     "tag": "Info",
+     "title": "2. Separate",
+     "text": "Chromatography (thin-layer, column, HPLC) separates the mixture into single compounds."
+    },
+    {
+     "tag": "Info",
+     "title": "3. Identify",
+     "text": "Mass spectrometry and NMR reveal each compound's structure, which can then be found in databases such as PubChem and IMPPAT."
+    },
+    {
+     "tag": "Lab",
+     "title": "4. Test",
+     "text": "Compounds are tested in cells, then animals; only a few ever reach human trials. Artemisinin from sweet wormwood is a famous success."
+    }
+   ],
+   "sources": [
+    "Pharmacognosy textbooks",
+    "IMPPAT"
+   ]
+  },
+  {
+   "id": "polarity",
+   "type": "extraction",
+   "name": "Which solvent extracts what",
+   "subtitle": "Polarity · like dissolves like",
+   "country": "",
+   "search": "solvent polarity phytochemical extraction",
+   "summary": "Whether a plant compound comes out in water, alcohol or oil depends on its polarity.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Water (most polar)",
+     "text": "Sugars, many tannins, many flavonoid glycosides and minerals."
+    },
+    {
+     "tag": "Info",
+     "title": "Alcohol (in between)",
+     "text": "Many flavonoids, many alkaloids, curcumin, and resins."
+    },
+    {
+     "tag": "Info",
+     "title": "Oils and fats (least polar)",
+     "text": "Carotenoids, fat-soluble vitamins and essential-oil terpenes."
+    },
+    {
+     "tag": "Info",
+     "title": "Why it matters",
+     "text": "A water tea and an alcohol tincture of the same herb can contain quite different compounds."
+    }
+   ],
+   "sources": [
+    "Chemistry textbooks"
+   ]
   }
  ]
 }

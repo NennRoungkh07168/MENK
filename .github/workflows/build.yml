@@ -23,6 +23,17 @@ jobs:
         with:
           gradle-version: "8.9"
 
+      - name: Put the offline research pack inside the app (if one has been built)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release download offline-pack -p offline-pack.zip -D app/src/main/assets --clobber; then
+            sha1sum app/src/main/assets/offline-pack.zip | cut -c1-12 > app/src/main/assets/offline-pack.version
+            ls -lh app/src/main/assets/offline-pack.zip
+          else
+            echo "No offline pack yet. Run the 'Build offline research pack' workflow to add one."
+          fi
+
       - name: Build debug APK
         run: gradle assembleDebug --no-daemon
 

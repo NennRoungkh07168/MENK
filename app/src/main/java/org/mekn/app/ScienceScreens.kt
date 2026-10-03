@@ -124,6 +124,7 @@ private fun LookupField(label: String, placeholder: String, button: String, onGo
 fun ExploreScreen(section: String?, onSection: (String?) -> Unit, onSearch: (String) -> Unit, onLab: () -> Unit) {
     when {
         section == "drugs" -> DrugIndexScreen(onSearch = onSearch, onBack = { onSection(null) })
+        section == "pack" -> OfflinePackScreen(onSearch = onSearch, onBack = { onSection(null) })
         section != null && section.startsWith("lib:") -> {
             val kind = LibKind.entries.firstOrNull { it.type == section.removePrefix("lib:") } ?: LibKind.Medicines
             LibraryScreen(kind = kind, onSearch = onSearch, onBack = { onSection(null) })
@@ -141,11 +142,25 @@ private fun ExploreHub(onSection: (String?) -> Unit, onSearch: (String) -> Unit,
                 HubCard("Drug index", "${DrugIndexData.size} generic medicines grouped by pharmacology family",
                     Icons.Outlined.Medication) { onSection("drugs") }
             }
+            item {
+                val n = OfflinePack.topics.size
+                HubCard(
+                    "Offline research pack",
+                    when {
+                        OfflinePack.installing -> "Unpacking research onto this device…"
+                        n > 0 -> "$n topics with papers, trials, FDA records and side effects, all without internet"
+                        else -> "Not included in this build yet. See README: \"Offline research pack\""
+                    },
+                    Icons.Outlined.CloudOff
+                ) { onSection("pack") }
+            }
             item { SectionLabel("Library · works offline") }
             val icons = mapOf(
                 LibKind.Medicines to Icons.Outlined.Medication,
                 LibKind.Diseases to Icons.Outlined.MonitorHeart,
                 LibKind.Herbs to Icons.Outlined.Eco,
+                LibKind.Vegetables to Icons.Outlined.Restaurant,
+                LibKind.Extraction to Icons.Outlined.Opacity,
                 LibKind.Biochem to Icons.Outlined.Biotech,
                 LibKind.Companies to Icons.Outlined.Factory,
                 LibKind.Institutions to Icons.Outlined.AccountBalance,
@@ -293,6 +308,63 @@ private fun DrugIndexScreen(onSearch: (String) -> Unit, onBack: () -> Unit) {
             item {
                 Text("For orientation only. Check each medicine against current official sources.",
                     fontSize = 12.sp, color = Mekn.Muted)
+            }
+        }
+    }
+}
+
+// =====================================================================
+// Offline research pack
+// =====================================================================
+
+@Composable
+private fun OfflinePackScreen(onSearch: (String) -> Unit, onBack: () -> Unit) {
+    var filter by rememberSaveable { mutableStateOf("") }
+    val all = OfflinePack.topics
+    val shown = remember(filter, all) { all.filter { it.contains(filter, true) } }
+    Column(Modifier.fillMaxSize()) {
+        PageHeader("Offline research pack", "${all.size} topics stored on this device · no internet needed", onBack)
+        CenteredList {
+            if (all.isEmpty()) {
+                item {
+                    BorderCard {
+                        Text(if (OfflinePack.installing) "Unpacking the research pack…" else "No offline pack in this build",
+                            fontWeight = FontWeight.Bold, fontSize = 16.sp, color = Mekn.Ink)
+                        Spacer(Modifier.height(6.dp))
+                        Text(
+                            "The pack is built on GitHub: run the \"Build offline research pack\" workflow " +
+                                "(or bash termux/build-pack.sh), then install the new app. Every topic in it then works " +
+                                "with papers, trials, FDA records, side effects and chemistry, without internet.",
+                            fontSize = 14.sp, lineHeight = 20.sp, color = BodyText
+                        )
+                    }
+                }
+            } else {
+                item {
+                    OutlinedTextField(
+                        value = filter, onValueChange = { filter = it }, modifier = Modifier.fillMaxWidth(), singleLine = true,
+                        label = { Text("Filter topics") },
+                        leadingIcon = { Icon(Icons.Outlined.Search, contentDescription = null) }
+                    )
+                }
+                item {
+                    Text("Tap a topic to open its full results offline. Online, results refresh automatically. " +
+                        "Country filters need internet; offline shows worldwide results.",
+                        fontSize = 12.sp, lineHeight = 16.sp, color = Mekn.Muted)
+                }
+                items(shown, key = { it }) { t ->
+                    Surface(
+                        onClick = { onSearch(t) }, color = Mekn.Surface, shape = RoundedCornerShape(10.dp),
+                        border = BorderStroke(1.dp, Mekn.Line), modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Row(Modifier.padding(13.dp), verticalAlignment = Alignment.CenterVertically) {
+                            Icon(Icons.Outlined.OfflinePin, contentDescription = null, tint = Mekn.Accent)
+                            Spacer(Modifier.width(12.dp))
+                            Text(t, fontWeight = FontWeight.SemiBold, color = Mekn.Ink, modifier = Modifier.weight(1f))
+                            Icon(Icons.AutoMirrored.Outlined.ArrowForward, contentDescription = null, tint = Mekn.Muted)
+                        }
+                    }
+                }
             }
         }
     }

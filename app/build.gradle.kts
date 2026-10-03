@@ -12,8 +12,8 @@ android {
         applicationId = "org.mekn.app"
         minSdk = 26  // Android 8+, needed for the adaptive launcher icon
         targetSdk = 34
-        versionCode = 11
-        versionName = "1.01"
+        versionCode = 13
+        versionName = "1.02"
     }
 
     signingConfigs {
@@ -54,4 +54,8 @@ dependencies {
     implementation("androidx.compose.material:material-icons-extended")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
     debugImplementation("androidx.compose.ui:ui-tooling")
+
+    // Used only on GitHub to build the offline research pack (see OfflinePackBuilder)
+    testImplementation("junit:junit:4.13.2")
+    testImplementation("org.json:json:20240303")
 }

@@ -1,4 +1,4 @@
-# RENK — Research Evidence Network of Knowledge (Android app, v1.01)
+# RENK — Research Evidence Network of Knowledge (Android app, v1.02)
 
 RENK explains published evidence. It does not diagnose or recommend treatment.
 
@@ -93,4 +93,10 @@ international institutions. See docs/RENK_V0.7.md.
 If git says "not a git repository", run:  bash termux/reconnect.sh
 
 ## v1.01
-Renamed to RENK. Evidence PDF library (offline), brand-name chemistry, estimated levels for new papers. See docs/RENK_V1.01.md.
+Renamed to RENK. Search results as downloadable PDFs, an Evidence PDF library that opens
+offline, and the offline research pack: real results for 120 topics built into the app.
+Build the pack with:  bash termux/build-pack.sh   (details in docs/RENK_V1.01.md)
+
+## v1.02
+Bigger offline pack (about 300 topics incl. ~180 study topics without FDA), review articles
+to study, vegetables & foods and herb extraction sections. See docs/RENK_V1.02.md.

@@ -1,0 +1,45 @@
+name: Build offline research pack
+
+# Downloads real research results for every topic in app/offline_topics.txt and publishes them
+# as the "offline-pack" release. The normal app build then puts the pack inside the APK.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 3 1 * *"   # refresh on the 1st of every month
+
+permissions:
+  contents: write
+
+jobs:
+  pack:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v5
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.9"
+
+      - name: Download research for every topic
+        env:
+          BUILD_OFFLINE_PACK: "1"
+          OPENFDA_API_KEY: ${{ secrets.OPENFDA_API_KEY }}
+        run: gradle :app:testDebugUnitTest --tests "org.mekn.app.OfflinePackBuilder" --rerun --no-daemon
+
+      - name: Publish the pack
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ls -lh app/build/offline-pack.zip
+          gh release delete offline-pack -y --cleanup-tag || true
+          gh release create offline-pack app/build/offline-pack.zip \
+            --title "RENK offline research pack" --notes "Built $(date -u +%F)"
