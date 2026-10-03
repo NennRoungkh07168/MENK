@@ -11,6 +11,14 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.ArrowBack
+import androidx.compose.material.icons.outlined.PictureAsPdf
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
+import android.widget.Toast
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -28,7 +36,7 @@ import org.json.JSONObject
 data class LibSection(val tag: String, val title: String, val text: String)
 
 data class LibEntry(
-    val id: String, val type: String, val name: String, val subtitle: String, val search: String,
+    val id: String, val type: String, val name: String, val subtitle: String, val country: String, val search: String,
     val summary: String, val sections: List<LibSection>, val sources: List<String>
 )
 
@@ -37,9 +45,13 @@ enum class LibKind(val type: String, val label: String, val blurb: String) {
     Diseases("disease", "Diseases", "Signs, diagnosis and established treatments"),
     Herbs("herb", "Herbs & plants", "Traditional use kept separate from human evidence"),
     Biochem("biochem", "Biochemistry", "Enzymes, receptors and the molecules drugs act on"),
-    Companies("company", "Pharma companies", "Manufacturers and vaccine makers in Germany and India"),
-    Institutions("institution", "Research institutions & labs", "Research centres, agencies and registries"),
-    Devices("device", "Medical devices", "What common devices measure and their limits")
+    Companies("company", "Pharma companies", "Germany, India, China, Spain, Russia"),
+    Institutions("institution", "Research institutes & labs", "Research centres and trial registries worldwide"),
+    Universities("university", "Universities", "Medicine, pharmacy and chemistry universities"),
+    Hospitals("hospital", "Hospitals & clinics", "Leading teaching and research hospitals"),
+    Regulators("regulator", "Regulators & health systems", "Medicine agencies and public health insurance by country"),
+    Devices("device", "Medical devices", "What common devices measure and their limits"),
+    Guides("guide", "Guides", "How prescriptions work, side effects, dose basics")
 }
 
 object Library {
@@ -57,7 +69,7 @@ object Library {
                 val srcs = o.optJSONArray("sources")
                 LibEntry(
                     id = o.optString("id"), type = o.optString("type"), name = o.optString("name"),
-                    subtitle = o.optString("subtitle"), search = o.optString("search"),
+                    subtitle = o.optString("subtitle"), country = o.optString("country"), search = o.optString("search"),
                     summary = o.optString("summary"),
                     sections = (0 until (secs?.length() ?: 0)).map { j ->
                         val s = secs!!.getJSONObject(j)
@@ -102,21 +114,27 @@ fun LibraryScreen(kind: LibKind, onSearch: (String) -> Unit, onBack: () -> Unit)
                 Column {
                     Text(kind.label, color = Mekn.Ground, fontFamily = Mekn.Display,
                         fontWeight = FontWeight.SemiBold, fontSize = 24.sp)
-                    Text("MENK Library · works offline", color = Mekn.OnInkMuted, fontSize = 12.sp)
+                    Text("RENK Library · works offline", color = Mekn.OnInkMuted, fontSize = 12.sp)
                 }
             }
         }
-        val items = all.filter { it.type == kind.type }
+        val ofKind = all.filter { it.type == kind.type }
+        val countries = ofKind.map { it.country }.filter { it.isNotBlank() }.distinct().sorted()
+        var country by remember(kind) { mutableStateOf("All") }
+        val shown = if (country == "All") ofKind else ofKind.filter { it.country == country }
         Box(Modifier.fillMaxSize(), contentAlignment = Alignment.TopCenter) {
             LazyColumn(
                 Modifier.widthIn(max = MAX_WIDTH).fillMaxSize(),
                 contentPadding = PaddingValues(horizontal = 20.dp, vertical = 16.dp),
                 verticalArrangement = Arrangement.spacedBy(10.dp)
             ) {
+                if (countries.size > 1) {
+                    item { ChipRow(listOf("All") + countries, country) { country = it } }
+                }
                 if (all.isEmpty()) {
                     item { Text("The library file couldn't be read. Reinstall the app.", color = Mekn.Preclinical) }
                 }
-                items(items, key = { it.id }) { e ->
+                items(shown, key = { it.id }) { e ->
                     Surface(
                         onClick = { openId = e.id },
                         color = Mekn.Surface,
@@ -137,7 +155,37 @@ fun LibraryScreen(kind: LibKind, onSearch: (String) -> Unit, onBack: () -> Unit)
 }
 
 @Composable
+fun ChipRow(options: List<String>, selected: String, onSelect: (String) -> Unit) {
+    LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+        items(options) { c ->
+            val on = c == selected
+            Surface(
+                onClick = { onSelect(c) },
+                color = if (on) Mekn.Accent else Mekn.Surface,
+                shape = RoundedCornerShape(18.dp),
+                border = BorderStroke(1.dp, if (on) Mekn.Accent else Mekn.Line)
+            ) {
+                Text(c, color = if (on) Color.White else Mekn.Ink, fontSize = 13.sp,
+                    fontWeight = if (on) FontWeight.Bold else FontWeight.Normal,
+                    modifier = Modifier.padding(horizontal = 14.dp, vertical = 10.dp))
+            }
+        }
+    }
+}
+
+@Composable
 private fun LibraryDetail(e: LibEntry, onBack: () -> Unit, onSearch: (String) -> Unit) {
+    val context = LocalContext.current
+    val scope = rememberCoroutineScope()
+    val savePdf: () -> Unit = {
+        val sections = listOf(ReportSection("Summary", listOf(e.subtitle, e.summary).filter { it.isNotBlank() }.joinToString("\n"))) +
+            e.sections.map { ReportSection("${it.title} (${it.tag})", it.text) } +
+            ReportSection("Sources", e.sources.joinToString(", "))
+        scope.launch {
+            val f = withContext(Dispatchers.IO) { PdfExport.saveToLibrary(context, e.name, e.name, sections) }
+            Toast.makeText(context, if (f != null) "Saved to Evidence → Saved PDFs" else "Couldn't save the PDF", Toast.LENGTH_LONG).show()
+        }
+    }
     Column(Modifier.fillMaxSize()) {
         Box(Modifier.fillMaxWidth().background(Mekn.Ink).statusBarsPadding(), contentAlignment = Alignment.TopCenter) {
             Row(
@@ -147,9 +195,12 @@ private fun LibraryDetail(e: LibEntry, onBack: () -> Unit, onSearch: (String) ->
                 IconButton(onClick = onBack) {
                     Icon(Icons.AutoMirrored.Outlined.ArrowBack, contentDescription = "Back", tint = Mekn.Ground)
                 }
-                Column {
+                Column(Modifier.weight(1f)) {
                     Text(e.name, color = Mekn.Ground, fontFamily = Mekn.Display, fontWeight = FontWeight.SemiBold, fontSize = 24.sp)
                     Text(e.subtitle, color = Mekn.OnInkMuted, fontSize = 12.sp)
+                }
+                IconButton(onClick = savePdf) {
+                    Icon(Icons.Outlined.PictureAsPdf, contentDescription = "Save as PDF", tint = Mekn.Ground)
                 }
             }
         }
@@ -240,15 +291,15 @@ fun EvidenceGuide() {
     )
     Box(Modifier.fillMaxSize(), contentAlignment = Alignment.TopCenter) {
         LazyColumn(
-            Modifier.widthIn(max = MAX_WIDTH).fillMaxSize().statusBarsPadding(),
+            Modifier.widthIn(max = MAX_WIDTH).fillMaxSize(),
             contentPadding = PaddingValues(horizontal = 20.dp, vertical = 20.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            item { SectionTitle("How MENK grades evidence") }
+            item { SectionTitle("How RENK grades evidence") }
             item {
                 Text(
                     "Not all evidence is equal. A lab result or a traditional use is a starting point, not proof " +
-                        "that something works in people. MENK labels every claim so you can see what it rests on.",
+                        "that something works in people. RENK labels every claim so you can see what it rests on.",
                     fontSize = 14.sp, lineHeight = 20.sp, color = Color(0xFF2F3A4A)
                 )
             }

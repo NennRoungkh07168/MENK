@@ -63,6 +63,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        Api.init(filesDir)   // saved copies of searches, so they work offline
         setContent { MeknApp() }
     }
 }
@@ -128,7 +129,7 @@ fun MeknApp() {
                         onExplore = { exploreSection = it; tab = Screen.Explore }
                     )
                     tab == Screen.Lab -> SimulationLabScreen()
-                    tab == Screen.Evidence -> EvidenceGuide()
+                    tab == Screen.Evidence -> EvidenceScreen()
                 }
             }
         }
@@ -152,9 +153,9 @@ fun HomeScreen(onScan: () -> Unit, onOpen: (Screen) -> Unit, onExplore: (String)
             verticalArrangement = Arrangement.spacedBy(14.dp)
         ) {
             Column {
-                Text("MENK", color = Mekn.Ground, fontFamily = Mekn.Display,
+                Text("RENK", color = Mekn.Ground, fontFamily = Mekn.Display,
                     fontWeight = FontWeight.SemiBold, fontSize = 34.sp)
-                Text("Medical Evidence Knowledge Network · v0.6", color = Mekn.OnInkMuted, fontSize = 13.sp)
+                Text("Research Evidence Network of Knowledge · v1.01", color = Mekn.OnInkMuted, fontSize = 13.sp)
             }
             Text("Search diseases, medicines, herbs", color = Mekn.OnInkMuted,
                 fontSize = 12.sp, fontWeight = FontWeight.SemiBold)
@@ -211,7 +212,7 @@ fun HomeScreen(onScan: () -> Unit, onOpen: (Screen) -> Unit, onExplore: (String)
         ) {
             BorderCard {
                 Text(
-                    "MENK explains published evidence. It does not diagnose or recommend treatment. " +
+                    "RENK explains published evidence. It does not diagnose or recommend treatment. " +
                         "Talk to a doctor before starting or changing any medicine.",
                     fontSize = 14.sp, lineHeight = 20.sp, color = Color(0xFF2F3A4A)
                 )
@@ -228,6 +229,10 @@ fun HomeScreen(onScan: () -> Unit, onOpen: (Screen) -> Unit, onExplore: (String)
                 ExploreCard("Herbs & plants", "Offline library", Modifier.weight(1f)) { onExplore("lib:herb") }
                 ExploreCard("Simulation Lab", "Kinetics, binding, dose-response", Modifier.weight(1f)) { onOpen(Screen.Lab) }
             }
+            ExploreCard("Saved PDF reports", "Your evidence library · opens offline",
+                Modifier.fillMaxWidth()) { onOpen(Screen.Evidence) }
+            ExploreCard("Guides: prescriptions & side effects", "How prescriptions work · understanding side effects · dose basics",
+                Modifier.fillMaxWidth()) { onExplore("lib:guide") }
             if (mode == Mode.Researcher) {
                 ExploreCard("Molecules & chemistry", "Try: caffeine · formula, 2D structure, properties", Modifier.fillMaxWidth()) {
                     onSearch("caffeine")

@@ -1,6 +1,6 @@
-# MENK Knowledge Database — Architecture
+# RENK Knowledge Database — Architecture
 
-Design for a MENK database that can hold **100+ million chemical records**, **millions of
+Design for a RENK database that can hold **100+ million chemical records**, **millions of
 medicine products**, and tens of millions of publications, trials and bioactivity
 measurements, with every fact traceable to its source.
 
@@ -13,7 +13,7 @@ The full table definitions are in [`database/schema.sql`](../database/schema.sql
 ## 1. The key decision: where the data lives
 
 A phone or tablet cannot hold 100 million compounds. A full PubChem-scale chemistry
-database with names, structures and indexes runs to hundreds of gigabytes. So MENK uses
+database with names, structures and indexes runs to hundreds of gigabytes. So RENK uses
 three tiers:
 
 ```
@@ -25,7 +25,7 @@ three tiers:
 └───────────────┬──────────────────────────────────────────────┘
                 │ HTTPS / JSON  (search, pages, evidence, scan)
 ┌───────────────▼──────────────────────────────────────────────┐
-│ MENK API SERVER                                              │
+│ RENK API SERVER                                              │
 │  • Search, entity pages, evidence, "Why do we believe this?" │
 │  • Caching layer for hot records                             │
 └───────┬──────────────────┬──────────────────┬────────────────┘
@@ -48,7 +48,7 @@ three tiers:
 ```
 
 **Today's app (v0.5)** skips the server and calls public APIs directly. That keeps it free
-and is the right choice until MENK needs things those APIs can't do: cross-linking
+and is the right choice until RENK needs things those APIs can't do: cross-linking
 sources, structure search, its own evidence grading, and offline use.
 
 ---
@@ -100,7 +100,7 @@ its recalls (`recall`) and its official labels (`label_document`, `label_section
 | Clinical facts | `indication`, `interaction`, `adverse_effect` |
 | Evidence | `evidence_claim`, `evidence_level`, `predicate` |
 
-### 2.4 Evidence: the heart of MENK
+### 2.4 Evidence: the heart of RENK
 
 Every claim is a row in **`evidence_claim`**:
 
@@ -167,12 +167,12 @@ Every source gets a row in `source` with its license terms, and every fact keeps
 
 **Limits of free data:**
 
-- **CAS Registry Numbers:** the full CAS Registry is a licensed product. MENK can store CAS
+- **CAS Registry Numbers:** the full CAS Registry is a licensed product. RENK can store CAS
   numbers only as they appear in public sources (PubChem, FDA). Complete CAS coverage
   would need a license.
 - **Reactions:** most of the "hundreds of millions" of documented reactions sit in
   commercial databases. Open sources cover biochemical reactions (Rhea) and a few million
-  patent reactions. MENK keeps reactions at the educational and biochemical level, not
+  patent reactions. RENK keeps reactions at the educational and biochemical level, not
   step-by-step synthesis procedures.
 
 ---
@@ -188,7 +188,7 @@ Repositories                   decide: offline pack → local cache → server/p
    │
  ┌─┴──────────────┬───────────────────┬────────────────────┐
 Room (SQLite)    Retrofit (HTTPS)     CameraX + ML Kit      WorkManager
-offline pack,    MENK API or public   barcode + text        weekly offline-pack
+offline pack,    RENK API or public   barcode + text        weekly offline-pack
 cache, saved     APIs                 recognition           and cache refresh
 ```
 
@@ -237,7 +237,7 @@ Every response includes the `sources` behind it.
 3. **Research layer:** publications, trials (ClinicalTrials.gov, DRKS, CTRI), targets
    and bioactivity (ChEMBL), diseases (Orphanet, MeSH, ICD).
 4. **Full chemistry:** bulk-load PubChem-scale compounds and RDKit structure search —
-   only once MENK needs queries that PubChem's own service can't answer.
+   only once RENK needs queries that PubChem's own service can't answer.
 5. **Offline packs and scanning** tied to the `package` barcode table.
 
 Each step works on its own. Step 4 is the only one that needs large storage.

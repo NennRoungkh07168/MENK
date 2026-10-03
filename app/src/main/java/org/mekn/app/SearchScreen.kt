@@ -8,10 +8,17 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
+import android.widget.Toast
+import androidx.compose.ui.platform.LocalContext
+import kotlinx.coroutines.launch
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.ArrowBack
+import androidx.compose.material.icons.outlined.PictureAsPdf
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -38,10 +45,16 @@ sealed interface Load<out T> {
 private fun <T> loaded(v: T?): Load<T> = if (v == null) Load.Failed else Load.Done(v)
 
 private enum class ResultTab(val label: String) {
-    Summary("Summary"), Papers("Papers"), Trials("Trials"), Fda("FDA"), Chemistry("Chemistry")
+    Summary("Summary"), Papers("Papers"), Trials("Trials"), Fda("Medicine"), Chemistry("Chemistry")
 }
 
 private val Body = Color(0xFF2F3A4A)
+
+/** Countries offered as filters for papers (author affiliation) and trials (study sites). */
+val COUNTRY_FILTERS = listOf(
+    "Worldwide", "Germany", "India", "China", "Russia", "Spain", "Cambodia",
+    "France", "United Kingdom", "Japan", "Thailand", "Vietnam", "United States"
+)
 
 @Composable
 fun SearchScreen(query: String, onBack: () -> Unit) {
@@ -49,18 +62,50 @@ fun SearchScreen(query: String, onBack: () -> Unit) {
     var map by remember(query) { mutableStateOf<Load<List<EvidenceCount>>>(Load.Loading) }
     var papers by remember(query) { mutableStateOf<Load<List<Paper>>>(Load.Loading) }
     var trials by remember(query) { mutableStateOf<Load<TrialSummary>>(Load.Loading) }
-    var compound by remember(query) { mutableStateOf<Load<Compound?>>(Load.Loading) }
+    var chem by remember(query) { mutableStateOf<Load<Pair<List<Compound>, String>>>(Load.Loading) }
+    val compound: Load<Compound?> = when (val c = chem) {
+        Load.Loading -> Load.Loading
+        Load.Failed -> Load.Failed
+        is Load.Done -> Load.Done(c.value.first.firstOrNull())
+    }
     var label by remember(query) { mutableStateOf<Load<DrugLabel?>>(Load.Loading) }
     var approvals by remember(query) { mutableStateOf<Load<FdaApprovals>>(Load.Loading) }
     var market by remember(query) { mutableStateOf<Load<Market>>(Load.Loading) }
     var recalls by remember(query) { mutableStateOf<Load<Recalls>>(Load.Loading) }
+    var sideFx by remember(query) { mutableStateOf<Load<SideEffectReports>>(Load.Loading) }
+    var paperCountry by remember(query) { mutableStateOf("Worldwide") }
+    var trialCountry by remember(query) { mutableStateOf("Worldwide") }
+    val hitsAtStart = remember(query) { Api.cacheHits.get() }
+    var offline by remember(query) { mutableStateOf(false) }
+    val context = LocalContext.current
+    val scope = rememberCoroutineScope()
+
+    // PDF button: saves a report into the Evidence library (works offline, open it any time from the Evidence tab).
+    val savePdf: () -> Unit = {
+        val sections = buildReport(query, map, papers, paperCountry, trials, trialCountry, approvals, sideFx, label, market, recalls, chem)
+        scope.launch {
+            val f = withContext(Dispatchers.IO) { PdfExport.saveToLibrary(context, query, "RENK research report: $query", sections) }
+            Toast.makeText(context, if (f != null) "Saved to Evidence → Saved PDFs" else "Couldn't save the PDF", Toast.LENGTH_LONG).show()
+        }
+    }
 
     // Sources load in parallel; each card fills in as soon as its data arrives.
     LaunchedEffect(query) { map = loaded(withContext(Dispatchers.IO) { Api.evidenceMap(query) }) }
-    LaunchedEffect(query) { papers = loaded(withContext(Dispatchers.IO) { Api.papers(query) }) }
-    LaunchedEffect(query) { trials = loaded(withContext(Dispatchers.IO) { Api.trials(query) }) }
+    LaunchedEffect(query, paperCountry) {
+        papers = Load.Loading
+        val c = paperCountry.takeIf { it != "Worldwide" }
+        papers = loaded(withContext(Dispatchers.IO) { Api.papers(query, c) })
+    }
+    LaunchedEffect(query, trialCountry) {
+        trials = Load.Loading
+        val c = trialCountry.takeIf { it != "Worldwide" }
+        trials = loaded(withContext(Dispatchers.IO) { Api.trials(query, c) })
+    }
+    LaunchedEffect(query) { sideFx = loaded(withContext(Dispatchers.IO) { Api.sideEffects(query) }) }
+    // Any answer served from the saved copy means we are offline (or a source is down).
+    LaunchedEffect(map, papers, trials, label, sideFx) { offline = Api.cacheHits.get() > hitsAtStart }
     LaunchedEffect(query) {
-        compound = Load.Done(withContext(Dispatchers.IO) { Api.compound(query) })
+        chem = loaded(withContext(Dispatchers.IO) { Api.resolveCompounds(query) })
     }
     LaunchedEffect(query) {
         approvals = loaded(withContext(Dispatchers.IO) { Api.approvals(query) })
@@ -77,14 +122,19 @@ fun SearchScreen(query: String, onBack: () -> Unit) {
                 Modifier.widthIn(max = MAX_WIDTH).fillMaxWidth().padding(start = 8.dp, end = 16.dp, top = 8.dp, bottom = 14.dp),
                 verticalArrangement = Arrangement.spacedBy(10.dp)
             ) {
-                Row(verticalAlignment = Alignment.CenterVertically) {
+                Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
                     IconButton(onClick = onBack) {
                         Icon(Icons.AutoMirrored.Outlined.ArrowBack, contentDescription = "Back", tint = Mekn.Ground)
                     }
-                    Column {
+                    Column(Modifier.weight(10f, fill = false)) {
                         Text(query, color = Mekn.Ground, fontFamily = Mekn.Display, fontWeight = FontWeight.SemiBold,
                             fontSize = 24.sp, maxLines = 1, overflow = TextOverflow.Ellipsis)
-                        Text("Live results from public research and FDA databases", color = Mekn.OnInkMuted, fontSize = 12.sp)
+                        Text(if (offline) "Offline: showing results saved from an earlier search"
+                            else "Live results from research and regulatory databases", color = Mekn.OnInkMuted, fontSize = 12.sp)
+                    }
+                    Spacer(Modifier.weight(1f))
+                    IconButton(onClick = savePdf) {
+                        Icon(Icons.Outlined.PictureAsPdf, contentDescription = "Save report as PDF", tint = Mekn.Ground)
                     }
                 }
                 Segmented(
@@ -104,21 +154,30 @@ fun SearchScreen(query: String, onBack: () -> Unit) {
             ) {
                 when (tab) {
                     ResultTab.Summary -> {
+                        if (offline) item { OfflineBanner() }
                         item { SummaryIntro(query) }
                         item { EvidenceMapCard(map) }
                         item { TrialCountCard(trials) }
                         item { FoundCard(compound, approvals, market, label) }
                     }
-                    ResultTab.Papers -> when (val p = papers) {
+                    ResultTab.Papers -> {
+                      item { CountryChips(paperCountry) { paperCountry = it } }
+                      item { Note("Country filters by the authors' institutions.") }
+                      when (val p = papers) {
                         Load.Loading -> item { LoadingRow("Searching Europe PMC and PubMed…") }
                         Load.Failed -> item { FailedRow() }
                         is Load.Done -> {
-                            item { Note("The 25 most relevant papers. Levels come from publication-type tags, not a quality review.") }
+                            item { Note("The 25 most relevant papers. Levels come from publication-type tags, not a quality review. " +
+                                "* = estimated from the title because the paper is too new to be tagged; — = not tagged yet.") }
                             if (p.value.isEmpty()) item { Note("No papers found. Try a different spelling or a broader term.") }
                             items(p.value) { PaperCard(it) }
                         }
+                      }
                     }
-                    ResultTab.Trials -> when (val t = trials) {
+                    ResultTab.Trials -> {
+                      item { CountryChips(trialCountry) { trialCountry = it } }
+                      item { Note("Country filters by where the study has sites. Source: ClinicalTrials.gov, which includes trials from many countries.") }
+                      when (val t = trials) {
                         Load.Loading -> item { LoadingRow("Searching ClinicalTrials.gov…") }
                         Load.Failed -> item { FailedRow() }
                         is Load.Done -> {
@@ -129,16 +188,31 @@ fun SearchScreen(query: String, onBack: () -> Unit) {
                             }
                             items(t.value.trials) { TrialCard(it) }
                         }
+                      }
                     }
                     ResultTab.Fda -> {
+                        item { Note("Official records below come from the US FDA. For other countries, see Explore → Regulators & health systems.") }
                         item { ApprovalCard(approvals) }
+                        item { SideEffectsCard(sideFx, label) }
+                        item { PrescribingCard(label) }
                         item { MarketCard(market) }
                         item { RecallCard(recalls) }
                         item { LabelCard(label) }
                     }
                     ResultTab.Chemistry -> {
-                        item { CompoundCard(compound) }
-                        item { PhysicalCard(compound) }
+                        when (val c = chem) {
+                            Load.Loading -> item { CompoundCard(Load.Loading) }
+                            Load.Failed -> item { CompoundCard(Load.Failed) }
+                            is Load.Done -> {
+                                val (list, note) = c.value
+                                if (note.isNotBlank()) item { Note(note) }
+                                if (list.isEmpty()) item { CompoundCard(Load.Done(null)) }
+                                list.forEach { comp ->
+                                    item { CompoundCard(Load.Done(comp)) }
+                                    item { PhysicalCard(Load.Done(comp)) }
+                                }
+                            }
+                        }
                     }
                 }
                 item { Spacer(Modifier.height(8.dp)) }
@@ -252,7 +326,7 @@ private fun PaperCard(p: Paper) {
     var open by remember { mutableStateOf(false) }
     BorderCard {
         Row(verticalAlignment = Alignment.Top) {
-            LevelBadge(p.level)
+            LevelBadge(p.level, p.estimated)
             Spacer(Modifier.width(10.dp))
             Column(Modifier.weight(1f)) {
                 Text(p.title, fontWeight = FontWeight.SemiBold, fontSize = 15.sp, lineHeight = 20.sp, color = Mekn.Ink)
@@ -290,6 +364,7 @@ private fun TrialCard(t: Trial) {
         Text(listOf(t.status, t.phase).filter { it.isNotBlank() }.joinToString(", "), fontSize = 13.sp, color = Body)
         if (t.enrollment.isNotBlank()) Small(t.enrollment)
         if (t.conditions.isNotBlank()) Small("Conditions: ${t.conditions}")
+        if (t.countries.isNotBlank()) Small("Countries: ${t.countries}")
         if (t.whyStopped.isNotBlank()) {
             Text("Stopped early: ${t.whyStopped}", fontSize = 13.sp, color = Mekn.Preclinical)
         }
@@ -317,6 +392,175 @@ private fun TrialCard(t: Trial) {
             TextButton(onClick = { uri.openUri(t.url) }) { Text("Open study") }
         }
     }
+}
+
+// ---------- Side effects, prescribing, offline, country filter ----------
+
+@Composable
+private fun OfflineBanner() {
+    Surface(color = Color(0xFFFFF8E6), shape = RoundedCornerShape(10.dp), border = BorderStroke(1.dp, Color(0xFFE6CF8F)),
+        modifier = Modifier.fillMaxWidth()) {
+        Text("You're offline, or a source didn't answer. RENK is showing the copy saved from your last search of this topic. " +
+            "Results that were never saved can't be shown until you're back online.",
+            fontSize = 13.sp, lineHeight = 18.sp, color = Color(0xFF4A3B12), modifier = Modifier.padding(12.dp))
+    }
+}
+
+@Composable
+fun CountryChips(selected: String, onSelect: (String) -> Unit) {
+    LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+        items(COUNTRY_FILTERS) { c ->
+            val on = c == selected
+            Surface(
+                onClick = { onSelect(c) },
+                color = if (on) Mekn.Accent else Mekn.Surface,
+                shape = RoundedCornerShape(18.dp),
+                border = BorderStroke(1.dp, if (on) Mekn.Accent else Mekn.Line)
+            ) {
+                Text(c, color = if (on) Color.White else Mekn.Ink, fontSize = 13.sp,
+                    fontWeight = if (on) FontWeight.Bold else FontWeight.Normal,
+                    modifier = Modifier.padding(horizontal = 14.dp, vertical = 10.dp))
+            }
+        }
+    }
+}
+
+@Composable
+private fun SideEffectsCard(state: Load<SideEffectReports>, label: Load<DrugLabel?>) {
+    BorderCard {
+        Title("Side effects")
+        val l = (label as? Load.Done<DrugLabel?>)?.value
+        if (l != null && l.adverseReactions.isNotBlank()) {
+            SubTitle("From the official label")
+            Text(l.adverseReactions, fontSize = 14.sp, lineHeight = 20.sp, color = Body)
+            Spacer(Modifier.height(10.dp))
+        }
+        SubTitle("Most often reported to the FDA (FAERS)")
+        when (state) {
+            Load.Loading -> LoadingRow("Checking FDA side-effect reports…")
+            Load.Failed -> FailedRow()
+            is Load.Done -> {
+                val r = state.value
+                if (r.top.isEmpty()) {
+                    StatusLine(false to "No reports found under this name")
+                } else {
+                    Text("${"%,d".format(r.totalReports)} reports mention this medicine", fontSize = 14.sp, color = Body)
+                    Spacer(Modifier.height(6.dp))
+                    val max = (r.top.maxOfOrNull { it.count } ?: 1).coerceAtLeast(1)
+                    r.top.forEach { t ->
+                        Column(Modifier.padding(vertical = 3.dp)) {
+                            Row {
+                                Text(t.term, fontSize = 13.sp, color = Mekn.Ink, modifier = Modifier.weight(1f))
+                                Text("%,d".format(t.count), fontFamily = FontFamily.Monospace, fontSize = 13.sp, color = Mekn.Ink)
+                            }
+                            Bar(t.count.toFloat() / max, Mekn.Preclinical)
+                        }
+                    }
+                }
+                Spacer(Modifier.height(8.dp))
+                Small("Anyone can send a report, and a report does not prove the medicine caused the effect. Counts also " +
+                    "reflect how widely a medicine is used. See Explore → Guides → \"Understanding side effects\".")
+            }
+        }
+    }
+}
+
+@Composable
+private fun PrescribingCard(label: Load<DrugLabel?>) {
+    BorderCard {
+        Title("Official prescribing information")
+        when (label) {
+            Load.Loading -> LoadingRow("Checking the official label…")
+            Load.Failed -> FailedRow()
+            is Load.Done -> {
+                val l = label.value
+                if (l == null || (l.dosing.isBlank() && l.pregnancy.isBlank())) {
+                    StatusLine(false to "No US prescribing information found")
+                } else {
+                    Surface(color = Color(0xFFFBEFE4), shape = RoundedCornerShape(8.dp), modifier = Modifier.fillMaxWidth()) {
+                        Text("This is the label text written for doctors and pharmacists. Only a prescriber who knows the " +
+                            "patient can decide a dose. Never change a dose without asking them.",
+                            fontSize = 13.sp, lineHeight = 18.sp, color = Color(0xFF6E3206), modifier = Modifier.padding(10.dp))
+                    }
+                    LabelSection("Dosage and administration", l.dosing, Mekn.Ink)
+                    LabelSection("Pregnancy and specific groups", l.pregnancy, Mekn.Preclinical)
+                    Spacer(Modifier.height(6.dp))
+                    Small("Source: US FDA label via openFDA. Doses and rules differ by country. See Explore → Guides → \"How prescriptions work\".")
+                }
+            }
+        }
+    }
+}
+
+// ---------- PDF report ----------
+
+private fun buildReport(
+    query: String, map: Load<List<EvidenceCount>>, papers: Load<List<Paper>>, paperCountry: String,
+    trials: Load<TrialSummary>, trialCountry: String, approvals: Load<FdaApprovals>,
+    sideFx: Load<SideEffectReports>, label: Load<DrugLabel?>, market: Load<Market>,
+    recalls: Load<Recalls>, chem: Load<Pair<List<Compound>, String>>
+): List<ReportSection> {
+    val out = mutableListOf<ReportSection>()
+    (map as? Load.Done<List<EvidenceCount>>)?.value?.let { m ->
+        out += ReportSection("Published research by study type (Europe PMC)",
+            m.joinToString("\n") { "${it.level.code}  ${it.label}: ${"%,d".format(it.count)}" })
+    }
+    (papers as? Load.Done<List<Paper>>)?.value?.takeIf { it.isNotEmpty() }?.let { list ->
+        out += ReportSection("Most relevant papers (${paperCountry})",
+            list.take(15).joinToString("\n\n") { p ->
+                "[${p.level.code}] ${p.title}\n${listOf(p.journal, p.year).filter { it.isNotBlank() }.joinToString(", ")}\n${p.url}"
+            })
+    }
+    (trials as? Load.Done<TrialSummary>)?.value?.let { t ->
+        out += ReportSection("Clinical trials (${trialCountry}) — ${t.total} registered, ${t.recruiting} recruiting",
+            t.trials.take(12).joinToString("\n\n") { tr ->
+                buildString {
+                    append("${tr.id}: ${tr.title}\n${listOf(tr.status, tr.phase).filter { it.isNotBlank() }.joinToString(", ")}")
+                    if (tr.enrollment.isNotBlank()) append("\n${tr.enrollment}")
+                    if (tr.countries.isNotBlank()) append("\nCountries: ${tr.countries}")
+                    tr.outcome?.let { o -> append("\nPosted result: ${o.title}: ${o.values.joinToString("; ")}") }
+                    if (tr.safety.isNotEmpty()) append("\nSerious adverse events: ${tr.safety.joinToString("; ")}")
+                    append("\n${tr.url}")
+                }
+            })
+    }
+    (approvals as? Load.Done<FdaApprovals>)?.value?.let { a ->
+        out += ReportSection("US FDA approval",
+            if (a.total == 0) "Not found in FDA's approved-drug database."
+            else a.items.joinToString("\n") { "${it.brand} ${it.appNo}, ${it.sponsor}, ${it.form}" +
+                (if (it.approvedOn.isNotBlank()) ", first approved ${it.approvedOn}" else "") })
+    }
+    val l = (label as? Load.Done<DrugLabel?>)?.value
+    if (l != null) {
+        val parts = listOf(
+            "Approved uses" to l.uses, "Side effects (label)" to l.adverseReactions,
+            "Interactions" to l.interactions, "Do not use / contraindications" to l.contraindications,
+            "Warnings" to l.warnings, "Dosage and administration (for prescribers)" to l.dosing,
+            "Pregnancy and specific groups" to l.pregnancy
+        ).filter { it.second.isNotBlank() }
+        parts.forEach { (h, b) -> out += ReportSection("US label: $h", b) }
+    }
+    (sideFx as? Load.Done<SideEffectReports>)?.value?.takeIf { it.top.isNotEmpty() }?.let { r ->
+        out += ReportSection("Side effects most often reported to the FDA (${"%,d".format(r.totalReports)} reports)",
+            r.top.joinToString("\n") { "${it.term}: ${"%,d".format(it.count)}" } +
+                "\nReports do not prove the medicine caused the effect.")
+    }
+    (market as? Load.Done<Market>)?.value?.takeIf { it.total > 0 }?.let { m ->
+        out += ReportSection("US products and manufacturers (${m.total} listings)",
+            m.makers.joinToString("\n") { "${it.term}: ${it.count}" })
+    }
+    (recalls as? Load.Done<Recalls>)?.value?.takeIf { it.total > 0 }?.let { r ->
+        out += ReportSection("Manufacturing recalls (${r.total})",
+            r.items.joinToString("\n\n") { "${it.date} ${it.firm} (${it.classification}): ${it.reason}" })
+    }
+    (chem as? Load.Done<Pair<List<Compound>, String>>)?.value?.first?.forEach { c ->
+        out += ReportSection("Chemistry (PubChem CID ${c.cid})",
+            "Formula ${c.formula}, molecular weight ${c.weight} g/mol\nInChIKey ${c.inchikey}\n" +
+                listOf("XLogP" to c.xlogp, "TPSA" to c.tpsa, "H-bond donors" to c.donors, "H-bond acceptors" to c.acceptors)
+                    .filter { it.second.isNotBlank() }.joinToString(", ") { "${it.first} ${it.second}" } + "\n${c.url}")
+    }
+    if (out.isEmpty()) out += ReportSection("No results yet", "Results were still loading or unavailable when this report was made.")
+    return out
 }
 
 // ---------- FDA tab ----------
@@ -572,13 +816,14 @@ private fun PropertyRow(name: String, value: String, meaning: String) {
 // ---------- Small shared pieces ----------
 
 @Composable
-fun LevelBadge(level: Level) {
+fun LevelBadge(level: Level, estimated: Boolean = false) {
     val shape = RoundedCornerShape(4.dp)
-    val mod = if (level.human) Modifier.background(Mekn.Accent, shape)
+    val solid = level.human && !estimated
+    val mod = if (solid) Modifier.background(Mekn.Accent, shape)
     else Modifier.background(Mekn.Surface, shape).border(BorderStroke(1.5.dp, Mekn.Predicted), shape)
     Box(mod.widthIn(min = 38.dp).height(22.dp).padding(horizontal = 6.dp), contentAlignment = Alignment.Center) {
-        Text(level.code, fontFamily = FontFamily.Monospace, fontSize = 11.sp,
-            color = if (level.human) Color.White else Color(0xFF3D4452))
+        Text(if (estimated) level.code + "*" else level.code, fontFamily = FontFamily.Monospace, fontSize = 11.sp,
+            color = if (solid) Color.White else Color(0xFF3D4452))
     }
 }
 

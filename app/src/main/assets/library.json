@@ -38,7 +38,8 @@
    "sources": [
     "US FDA label (DailyMed / openFDA)",
     "PubChem"
-   ]
+   ],
+   "country": ""
   },
   {
    "id": "paracetamol",
@@ -72,7 +73,8 @@
    "sources": [
     "US FDA label (DailyMed / openFDA)",
     "PubChem"
-   ]
+   ],
+   "country": ""
   },
   {
    "id": "ibuprofen",
@@ -111,7 +113,8 @@
    "sources": [
     "US FDA label (DailyMed / openFDA)",
     "PubChem"
-   ]
+   ],
+   "country": ""
   },
   {
    "id": "metformin",
@@ -145,7 +148,8 @@
    "sources": [
     "US FDA label (DailyMed / openFDA)",
     "PubChem"
-   ]
+   ],
+   "country": ""
   },
   {
    "id": "amoxicillin",
@@ -179,7 +183,8 @@
    "sources": [
     "US FDA label (DailyMed / openFDA)",
     "PubChem"
-   ]
+   ],
+   "country": ""
   },
   {
    "id": "atorvastatin",
@@ -213,7 +218,8 @@
    "sources": [
     "US FDA label (DailyMed / openFDA)",
     "PubChem"
-   ]
+   ],
+   "country": ""
   },
   {
    "id": "amlodipine",
@@ -242,7 +248,8 @@
    "sources": [
     "US FDA label (DailyMed / openFDA)",
     "PubChem"
-   ]
+   ],
+   "country": ""
   },
   {
    "id": "omeprazole",
@@ -276,7 +283,8 @@
    "sources": [
     "US FDA label (DailyMed / openFDA)",
     "PubChem"
-   ]
+   ],
+   "country": ""
   },
   {
    "id": "salbutamol",
@@ -311,7 +319,8 @@
     "US FDA label (DailyMed / openFDA)",
     "GINA asthma guidelines",
     "PubChem"
-   ]
+   ],
+   "country": ""
   },
   {
    "id": "artemether-lumefantrine",
@@ -345,7 +354,8 @@
    "sources": [
     "WHO malaria guidelines",
     "US FDA label (DailyMed / openFDA)"
-   ]
+   ],
+   "country": ""
   },
   {
    "id": "type-2-diabetes",
@@ -379,7 +389,8 @@
    "sources": [
     "WHO",
     "ADA Standards of Care"
-   ]
+   ],
+   "country": ""
   },
   {
    "id": "hypertension",
@@ -408,7 +419,8 @@
    "sources": [
     "WHO",
     "ESC and ACC/AHA guidelines"
-   ]
+   ],
+   "country": ""
   },
   {
    "id": "asthma",
@@ -437,7 +449,8 @@
    "sources": [
     "GINA asthma guidelines",
     "WHO"
-   ]
+   ],
+   "country": ""
   },
   {
    "id": "tuberculosis",
@@ -465,7 +478,8 @@
    ],
    "sources": [
     "WHO TB guidelines"
-   ]
+   ],
+   "country": ""
   },
   {
    "id": "malaria",
@@ -498,7 +512,8 @@
    ],
    "sources": [
     "WHO malaria guidelines"
-   ]
+   ],
+   "country": ""
   },
   {
    "id": "dengue",
@@ -531,7 +546,8 @@
    ],
    "sources": [
     "WHO dengue guidance"
-   ]
+   ],
+   "country": ""
   },
   {
    "id": "pancreatic-cancer",
@@ -560,7 +576,8 @@
    "sources": [
     "NCCN and ESMO guidelines",
     "ClinicalTrials.gov"
-   ]
+   ],
+   "country": ""
   },
   {
    "id": "alzheimers",
@@ -589,7 +606,8 @@
    "sources": [
     "FDA",
     "NIA (US National Institute on Aging)"
-   ]
+   ],
+   "country": ""
   },
   {
    "id": "turmeric",
@@ -624,7 +642,8 @@
     "IMPPAT",
     "CCRAS",
     "PubMed"
-   ]
+   ],
+   "country": "India"
   },
   {
    "id": "ashwagandha",
@@ -653,7 +672,8 @@
    "sources": [
     "CCRAS",
     "PubMed"
-   ]
+   ],
+   "country": "India"
   },
   {
    "id": "ginger",
@@ -682,7 +702,8 @@
    "sources": [
     "PubMed",
     "Cochrane reviews"
-   ]
+   ],
+   "country": ""
   },
   {
    "id": "garlic",
@@ -706,7 +727,8 @@
    "sources": [
     "PubMed",
     "NCCIH (US)"
-   ]
+   ],
+   "country": ""
   },
   {
    "id": "neem",
@@ -735,7 +757,8 @@
    "sources": [
     "IMPPAT",
     "PubMed"
-   ]
+   ],
+   "country": "India"
   },
   {
    "id": "max-planck",
@@ -753,7 +776,8 @@
    ],
    "sources": [
     "mpg.de"
-   ]
+   ],
+   "country": "Germany"
   },
   {
    "id": "dkfz",
@@ -772,7 +796,8 @@
    "sources": [
     "dkfz.de",
     "helmholtz.de"
-   ]
+   ],
+   "country": "Germany"
   },
   {
    "id": "mdc",
@@ -790,7 +815,8 @@
    ],
    "sources": [
     "mdc-berlin.de"
-   ]
+   ],
+   "country": "Germany"
   },
   {
    "id": "hzi",
@@ -808,7 +834,8 @@
    ],
    "sources": [
     "helmholtz-hzi.de"
-   ]
+   ],
+   "country": "Germany"
   },
   {
    "id": "helmholtz-munich",
@@ -826,7 +853,8 @@
    ],
    "sources": [
     "helmholtz-munich.de"
-   ]
+   ],
+   "country": "Germany"
   },
   {
    "id": "dzne",
@@ -844,7 +872,8 @@
    ],
    "sources": [
     "dzne.de"
-   ]
+   ],
+   "country": "Germany"
   },
   {
    "id": "dzg",
@@ -862,11 +891,12 @@
    ],
    "sources": [
     "deutschezentren.de"
-   ]
+   ],
+   "country": "Germany"
   },
   {
    "id": "pei",
-   "type": "institution",
+   "type": "regulator",
    "name": "Paul-Ehrlich-Institut (PEI)",
    "subtitle": "Germany · Langen · federal agency",
    "search": "paul ehrlich institut",
@@ -880,11 +910,12 @@
    ],
    "sources": [
     "pei.de"
-   ]
+   ],
+   "country": "Germany"
   },
   {
    "id": "bfarm",
-   "type": "institution",
+   "type": "regulator",
    "name": "BfArM and DRKS",
    "subtitle": "Germany · Bonn and Cologne · federal agency",
    "search": "BfArM",
@@ -899,11 +930,12 @@
    "sources": [
     "bfarm.de",
     "drks.de"
-   ]
+   ],
+   "country": "Germany"
   },
   {
    "id": "charite",
-   "type": "institution",
+   "type": "hospital",
    "name": "Charité – Universitätsmedizin Berlin",
    "subtitle": "Germany · Berlin · university hospital",
    "search": "charite berlin",
@@ -917,11 +949,12 @@
    ],
    "sources": [
     "charite.de"
-   ]
+   ],
+   "country": "Germany"
   },
   {
    "id": "heidelberg",
-   "type": "institution",
+   "type": "hospital",
    "name": "Heidelberg University Hospital",
    "subtitle": "Germany · Heidelberg · university hospital",
    "search": "heidelberg university hospital",
@@ -935,7 +968,8 @@
    ],
    "sources": [
     "heidelberg-university-hospital.com"
-   ]
+   ],
+   "country": "Germany"
   },
   {
    "id": "icmr",
@@ -954,11 +988,12 @@
    "sources": [
     "icmr.gov.in",
     "ctri.nic.in"
-   ]
+   ],
+   "country": "India"
   },
   {
    "id": "cdsco",
-   "type": "institution",
+   "type": "regulator",
    "name": "CDSCO",
    "subtitle": "India · national regulator",
    "search": "CDSCO",
@@ -972,7 +1007,8 @@
    ],
    "sources": [
     "cdsco.gov.in"
-   ]
+   ],
+   "country": "India"
   },
   {
    "id": "ccras",
@@ -990,7 +1026,8 @@
    ],
    "sources": [
     "ccras.nic.in"
-   ]
+   ],
+   "country": "India"
   },
   {
    "id": "imppat",
@@ -1008,7 +1045,8 @@
    ],
    "sources": [
     "cb.imsc.res.in/imppat"
-   ]
+   ],
+   "country": "India"
   },
   {
    "id": "enzymes",
@@ -1032,7 +1070,8 @@
    "sources": [
     "Biochemistry textbooks",
     "FDA labels"
-   ]
+   ],
+   "country": ""
   },
   {
    "id": "receptors",
@@ -1056,7 +1095,8 @@
    "sources": [
     "Pharmacology textbooks",
     "FDA labels"
-   ]
+   ],
+   "country": ""
   },
   {
    "id": "cyp450",
@@ -1080,7 +1120,8 @@
    "sources": [
     "FDA drug interaction guidance",
     "PharmGKB"
-   ]
+   ],
+   "country": ""
   },
   {
    "id": "central-dogma",
@@ -1104,7 +1145,8 @@
    "sources": [
     "Molecular biology textbooks",
     "PubMed"
-   ]
+   ],
+   "country": ""
   },
   {
    "id": "insulin-glucose",
@@ -1128,7 +1170,8 @@
    "sources": [
     "Physiology textbooks",
     "ADA"
-   ]
+   ],
+   "country": ""
   },
   {
    "id": "bayer",
@@ -1146,7 +1189,8 @@
    ],
    "sources": [
     "bayer.com"
-   ]
+   ],
+   "country": "Germany"
   },
   {
    "id": "boehringer",
@@ -1164,7 +1208,8 @@
    ],
    "sources": [
     "boehringer-ingelheim.com"
-   ]
+   ],
+   "country": "Germany"
   },
   {
    "id": "merck-kgaa",
@@ -1182,7 +1227,8 @@
    ],
    "sources": [
     "merckgroup.com"
-   ]
+   ],
+   "country": "Germany"
   },
   {
    "id": "biontech",
@@ -1200,7 +1246,8 @@
    ],
    "sources": [
     "biontech.com"
-   ]
+   ],
+   "country": "Germany"
   },
   {
    "id": "sun-pharma",
@@ -1218,7 +1265,8 @@
    ],
    "sources": [
     "sunpharma.com"
-   ]
+   ],
+   "country": "India"
   },
   {
    "id": "cipla",
@@ -1236,7 +1284,8 @@
    ],
    "sources": [
     "cipla.com"
-   ]
+   ],
+   "country": "India"
   },
   {
    "id": "dr-reddys",
@@ -1254,7 +1303,8 @@
    ],
    "sources": [
     "drreddys.com"
-   ]
+   ],
+   "country": "India"
   },
   {
    "id": "serum-institute",
@@ -1272,7 +1322,8 @@
    ],
    "sources": [
     "seruminstitute.com"
-   ]
+   ],
+   "country": "India"
   },
   {
    "id": "pulse-oximeter",
@@ -1295,7 +1346,8 @@
    ],
    "sources": [
     "FDA safety communication"
-   ]
+   ],
+   "country": ""
   },
   {
    "id": "glucose-meter",
@@ -1319,7 +1371,8 @@
    "sources": [
     "ISO 15197:2013",
     "FDA"
-   ]
+   ],
+   "country": ""
   },
   {
    "id": "bp-monitor",
@@ -1343,7 +1396,8 @@
    "sources": [
     "ESC and AHA guidance",
     "STRIDE BP"
-   ]
+   ],
+   "country": ""
   },
   {
    "id": "thermometer",
@@ -1361,7 +1415,8 @@
    ],
    "sources": [
     "FDA"
-   ]
+   ],
+   "country": ""
   },
   {
    "id": "ecg",
@@ -1384,6 +1439,1169 @@
    ],
    "sources": [
     "FDA"
+   ],
+   "country": ""
+  },
+  {
+   "id": "how-prescriptions-work",
+   "type": "guide",
+   "name": "How prescriptions work",
+   "subtitle": "Guide · who prescribes, what a prescription says",
+   "country": "",
+   "search": "prescribing practice",
+   "summary": "A prescription is a written or electronic order from a licensed prescriber that lets a pharmacist dispense a medicine for one specific person.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Who can prescribe",
+     "text": "Doctors and dentists everywhere; in some countries also certain nurses, pharmacists or other trained professionals, as set by national law."
+    },
+    {
+     "tag": "Info",
+     "title": "What a prescription contains",
+     "text": "The patient's name, the medicine and its strength, the dose, how and how often to take it, for how long, the quantity, and the prescriber's details and signature."
+    },
+    {
+     "tag": "Info",
+     "title": "How the prescriber decides",
+     "text": "They weigh the diagnosis, age, weight, pregnancy, kidney and liver function, allergies and other medicines, using the official label and treatment guidelines. This is why one person's dose may be wrong for another."
+    },
+    {
+     "tag": "Safety",
+     "title": "Safe use",
+     "text": "Take it exactly as prescribed, tell the pharmacist about all your other medicines and herbs, never share prescription medicines, and ask before stopping or changing a dose."
+    },
+    {
+     "tag": "Official",
+     "title": "Prescription vs over-the-counter",
+     "text": "Prescription-only medicines need a prescriber's order. Over-the-counter medicines can be bought without one, but still have dose limits and warnings on the label."
+    },
+    {
+     "tag": "Official",
+     "title": "Country examples",
+     "text": "Germany uses the electronic prescription (E-Rezept), mandatory for prescription medicines since January 2024. In India, Schedule H medicines may only be sold on prescription. In the US, prescription medicines are labelled 'Rx only'."
+    }
+   ],
+   "sources": [
+    "WHO Guide to Good Prescribing",
+    "gematik (E-Rezept)",
+    "Drugs and Cosmetics Rules, India"
+   ]
+  },
+  {
+   "id": "understanding-side-effects",
+   "type": "guide",
+   "name": "Understanding side effects",
+   "subtitle": "Guide · labels, frequency words and reports",
+   "country": "",
+   "search": "adverse drug reaction reporting",
+   "summary": "Side effects (adverse reactions) are unwanted effects of a medicine. RENK shows two kinds of information about them, and they mean different things.",
+   "sections": [
+    {
+     "tag": "Official",
+     "title": "On the label",
+     "text": "Labels list side effects found in clinical trials and after approval. European labels use fixed frequency words: very common (more than 1 in 10 people), common (1 in 100 to 1 in 10), uncommon (1 in 1,000 to 1 in 100), rare (1 in 10,000 to 1 in 1,000), very rare (fewer than 1 in 10,000)."
+    },
+    {
+     "tag": "Research",
+     "title": "In report databases",
+     "text": "Systems such as the FDA's FAERS collect reports from doctors, patients and companies. A report means someone suspected a link, not that the medicine caused it. Popular medicines get more reports simply because more people take them."
+    },
+    {
+     "tag": "Safety",
+     "title": "Serious warning signs",
+     "text": "Get urgent help for swelling of the face or throat, trouble breathing, a severe rash with blisters, fainting, or black or bloody stools."
+    },
+    {
+     "tag": "Info",
+     "title": "How to report a side effect",
+     "text": "US: FDA MedWatch. Germany: BfArM, or the Paul-Ehrlich-Institut for vaccines. India: the Pharmacovigilance Programme of India (PvPI). Elsewhere: your national medicines regulator or your pharmacist."
+    }
+   ],
+   "sources": [
+    "EU SmPC guideline",
+    "FDA FAERS",
+    "PvPI"
+   ]
+  },
+  {
+   "id": "dose-basics",
+   "type": "guide",
+   "name": "Dose basics",
+   "subtitle": "Guide · what dose, frequency and route mean",
+   "country": "",
+   "search": "dose adjustment renal impairment",
+   "summary": "Why the same medicine can be given in different amounts, and what the words on a prescription mean.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "The words",
+     "text": "Dose: how much at one time. Frequency: how often. Route: how it enters the body, such as by mouth, injection, inhaled or on the skin. Duration: for how long."
+    },
+    {
+     "tag": "Info",
+     "title": "Why doses differ",
+     "text": "Age, body weight, kidney and liver function, pregnancy, other medicines and genetics change how a body handles a drug. Children are not small adults."
+    },
+    {
+     "tag": "Safety",
+     "title": "Important",
+     "text": "RENK never gives a personal dose. The Simulation Lab models are for learning only. Your doctor or pharmacist sets your dose."
+    }
+   ],
+   "sources": [
+    "WHO",
+    "FDA"
+   ]
+  },
+  {
+   "id": "who",
+   "type": "regulator",
+   "name": "World Health Organization (WHO)",
+   "subtitle": "Global · Geneva",
+   "country": "International",
+   "search": "World Health Organization essential medicines",
+   "summary": "The United Nations agency for health.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Treatment guidelines, the Model List of Essential Medicines, and the ICTRP portal that links trial registries worldwide."
+    }
+   ],
+   "sources": [
+    "who.int"
+   ]
+  },
+  {
+   "id": "ema",
+   "type": "regulator",
+   "name": "European Medicines Agency (EMA)",
+   "subtitle": "European Union · Amsterdam",
+   "country": "European Union",
+   "search": "European Medicines Agency",
+   "summary": "Evaluates and supervises medicines for the European Union.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Central marketing authorisation for many medicines across EU countries, and safety monitoring."
+    }
+   ],
+   "sources": [
+    "ema.europa.eu"
+   ]
+  },
+  {
+   "id": "fda",
+   "type": "regulator",
+   "name": "US Food and Drug Administration (FDA)",
+   "subtitle": "United States · Silver Spring, Maryland",
+   "country": "United States",
+   "search": "FDA drug approval",
+   "summary": "The US regulator for medicines, vaccines and medical devices.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Approvals, labels, inspections, recalls and side-effect reporting (FAERS). Most official records in RENK's Medicine tab come from FDA data."
+    }
+   ],
+   "sources": [
+    "fda.gov",
+    "open.fda.gov"
+   ]
+  },
+  {
+   "id": "aemps",
+   "type": "regulator",
+   "name": "AEMPS",
+   "subtitle": "Spain · Madrid",
+   "country": "Spain",
+   "search": "AEMPS Spain medicines",
+   "summary": "The Spanish Agency of Medicines and Medical Devices.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Authorisation and safety monitoring of medicines and devices in Spain."
+    }
+   ],
+   "sources": [
+    "aemps.gob.es"
+   ]
+  },
+  {
+   "id": "nmpa",
+   "type": "regulator",
+   "name": "National Medical Products Administration (NMPA)",
+   "subtitle": "China · Beijing",
+   "country": "China",
+   "search": "NMPA China drug approval",
+   "summary": "China's regulator for medicines, medical devices and cosmetics.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Drug and device registration, clinical trial approval and inspections."
+    }
+   ],
+   "sources": [
+    "nmpa.gov.cn"
+   ]
+  },
+  {
+   "id": "russia-moh",
+   "type": "regulator",
+   "name": "Ministry of Health of the Russian Federation",
+   "subtitle": "Russia · Moscow",
+   "country": "Russia",
+   "search": "Russia drug registration",
+   "summary": "Registers medicines in Russia and keeps the State Register of Medicinal Products (GRLS).",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Medicine registration; Roszdravnadzor supervises quality and safety."
+    }
+   ],
+   "sources": [
+    "minzdrav.gov.ru",
+    "grls.rosminzdrav.ru"
+   ]
+  },
+  {
+   "id": "ddf-cambodia",
+   "type": "regulator",
+   "name": "Department of Drugs and Food (DDF)",
+   "subtitle": "Cambodia · Phnom Penh · Ministry of Health",
+   "country": "Cambodia",
+   "search": "Cambodia medicine regulation",
+   "summary": "Cambodia's authority for registering and controlling medicines.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Medicine registration, import control and quality of medicines in Cambodia."
+    }
+   ],
+   "sources": [
+    "Ministry of Health, Cambodia"
+   ]
+  },
+  {
+   "id": "medicare",
+   "type": "regulator",
+   "name": "Medicare",
+   "subtitle": "United States · federal health insurance",
+   "country": "United States",
+   "search": "Medicare Part D",
+   "summary": "US public health insurance for people aged 65 and over and some younger people with disabilities.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Part D covers prescription medicines through approved private plans."
+    }
+   ],
+   "sources": [
+    "medicare.gov"
+   ]
+  },
+  {
+   "id": "gkv",
+   "type": "regulator",
+   "name": "Statutory health insurance (GKV)",
+   "subtitle": "Germany · public health insurance",
+   "country": "Germany",
+   "search": "German statutory health insurance",
+   "summary": "Most people in Germany are insured through statutory health insurance funds.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Covers doctor visits, hospital care and most prescription medicines, with small co-payments."
+    }
+   ],
+   "sources": [
+    "bundesgesundheitsministerium.de"
+   ]
+  },
+  {
+   "id": "pmjay",
+   "type": "regulator",
+   "name": "Ayushman Bharat PM-JAY",
+   "subtitle": "India · public health insurance",
+   "country": "India",
+   "search": "Ayushman Bharat PM-JAY",
+   "summary": "India's government health insurance scheme for poorer families.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Covers hospital treatment up to ₹5 lakh per family per year at listed hospitals."
+    }
+   ],
+   "sources": [
+    "pmjay.gov.in"
+   ]
+  },
+  {
+   "id": "aiims",
+   "type": "hospital",
+   "name": "AIIMS New Delhi",
+   "subtitle": "India · New Delhi",
+   "country": "India",
+   "search": "AIIMS New Delhi",
+   "summary": "All India Institute of Medical Sciences, a leading public hospital and medical university.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Patient care, medical education and clinical research across specialties."
+    }
+   ],
+   "sources": [
+    "aiims.edu"
+   ]
+  },
+  {
+   "id": "cmc-vellore",
+   "type": "hospital",
+   "name": "Christian Medical College, Vellore",
+   "subtitle": "India · Vellore, Tamil Nadu",
+   "country": "India",
+   "search": "Christian Medical College Vellore",
+   "summary": "A large teaching hospital known for clinical care and research.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Clinical research, public health and medical education."
+    }
+   ],
+   "sources": [
+    "cmch-vellore.edu"
+   ]
+  },
+  {
+   "id": "pgimer",
+   "type": "hospital",
+   "name": "PGIMER Chandigarh",
+   "subtitle": "India · Chandigarh",
+   "country": "India",
+   "search": "PGIMER Chandigarh",
+   "summary": "Postgraduate Institute of Medical Education and Research.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Specialist care, postgraduate training and clinical research."
+    }
+   ],
+   "sources": [
+    "pgimer.edu.in"
+   ]
+  },
+  {
+   "id": "tata-memorial",
+   "type": "hospital",
+   "name": "Tata Memorial Centre",
+   "subtitle": "India · Mumbai",
+   "country": "India",
+   "search": "Tata Memorial Centre",
+   "summary": "India's leading cancer hospital and research centre.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Cancer treatment, clinical trials and cancer research."
+    }
+   ],
+   "sources": [
+    "tmc.gov.in"
+   ]
+  },
+  {
+   "id": "pumch",
+   "type": "hospital",
+   "name": "Peking Union Medical College Hospital",
+   "subtitle": "China · Beijing",
+   "country": "China",
+   "search": "Peking Union Medical College Hospital",
+   "summary": "One of China's best-known hospitals.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Complex and rare diseases, clinical research and teaching."
+    }
+   ],
+   "sources": [
+    "pumch.cn"
+   ]
+  },
+  {
+   "id": "clinic-barcelona",
+   "type": "hospital",
+   "name": "Hospital Clínic de Barcelona",
+   "subtitle": "Spain · Barcelona",
+   "country": "Spain",
+   "search": "Hospital Clinic Barcelona",
+   "summary": "A major university hospital linked to the University of Barcelona.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Clinical care and biomedical research."
+    }
+   ],
+   "sources": [
+    "clinicbarcelona.org"
+   ]
+  },
+  {
+   "id": "la-paz",
+   "type": "hospital",
+   "name": "Hospital Universitario La Paz",
+   "subtitle": "Spain · Madrid",
+   "country": "Spain",
+   "search": "Hospital La Paz Madrid",
+   "summary": "One of Spain's largest public hospitals.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Clinical care, transplants, paediatrics and research."
+    }
+   ],
+   "sources": [
+    "comunidad.madrid/hospital/lapaz"
+   ]
+  },
+  {
+   "id": "calmette",
+   "type": "hospital",
+   "name": "Calmette Hospital",
+   "subtitle": "Cambodia · Phnom Penh",
+   "country": "Cambodia",
+   "search": "Calmette Hospital Cambodia",
+   "summary": "One of Cambodia's main national hospitals.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Specialist medical and surgical care."
+    }
+   ],
+   "sources": [
+    "Ministry of Health, Cambodia"
+   ]
+  },
+  {
+   "id": "heidelberg-uni",
+   "type": "university",
+   "name": "Heidelberg University",
+   "subtitle": "Germany · Heidelberg",
+   "country": "Germany",
+   "search": "Heidelberg University",
+   "summary": "Germany's oldest university, strong in medicine and life sciences.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Medicine, molecular biology and chemistry."
+    }
+   ],
+   "sources": [
+    "uni-heidelberg.de"
+   ]
+  },
+  {
+   "id": "lmu",
+   "type": "university",
+   "name": "LMU Munich",
+   "subtitle": "Germany · Munich",
+   "country": "Germany",
+   "search": "LMU Munich",
+   "summary": "Ludwig Maximilian University of Munich.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Medicine, chemistry, pharmacy and biology."
+    }
+   ],
+   "sources": [
+    "lmu.de"
+   ]
+  },
+  {
+   "id": "tum",
+   "type": "university",
+   "name": "Technical University of Munich (TUM)",
+   "subtitle": "Germany · Munich",
+   "country": "Germany",
+   "search": "Technical University of Munich chemistry",
+   "summary": "A leading technical university.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Chemistry, engineering, life sciences and medicine."
+    }
+   ],
+   "sources": [
+    "tum.de"
+   ]
+  },
+  {
+   "id": "iisc",
+   "type": "university",
+   "name": "Indian Institute of Science (IISc)",
+   "subtitle": "India · Bengaluru",
+   "country": "India",
+   "search": "Indian Institute of Science chemistry",
+   "summary": "India's leading research university.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Chemistry, biology and engineering research."
+    }
+   ],
+   "sources": [
+    "iisc.ac.in"
+   ]
+  },
+  {
+   "id": "ncl-pune",
+   "type": "university",
+   "name": "CSIR-National Chemical Laboratory",
+   "subtitle": "India · Pune",
+   "country": "India",
+   "search": "CSIR National Chemical Laboratory",
+   "summary": "A national chemistry research laboratory.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Chemical sciences, catalysis, polymers and process chemistry."
+    }
+   ],
+   "sources": [
+    "ncl-india.org"
+   ]
+  },
+  {
+   "id": "iict",
+   "type": "university",
+   "name": "CSIR-Indian Institute of Chemical Technology",
+   "subtitle": "India · Hyderabad",
+   "country": "India",
+   "search": "CSIR IICT Hyderabad",
+   "summary": "A national laboratory for chemical technology.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Drug chemistry, chemical processes and crop-protection chemistry."
+    }
+   ],
+   "sources": [
+    "iictindia.org"
+   ]
+  },
+  {
+   "id": "peking-uni",
+   "type": "university",
+   "name": "Peking University",
+   "subtitle": "China · Beijing",
+   "country": "China",
+   "search": "Peking University",
+   "summary": "One of China's top universities, with a large health science centre.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Medicine, pharmacy, chemistry and public health."
+    }
+   ],
+   "sources": [
+    "pku.edu.cn"
+   ]
+  },
+  {
+   "id": "tsinghua",
+   "type": "university",
+   "name": "Tsinghua University",
+   "subtitle": "China · Beijing",
+   "country": "China",
+   "search": "Tsinghua University",
+   "summary": "A leading research university.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Chemistry, engineering and life sciences."
+    }
+   ],
+   "sources": [
+    "tsinghua.edu.cn"
+   ]
+  },
+  {
+   "id": "msu",
+   "type": "university",
+   "name": "Lomonosov Moscow State University",
+   "subtitle": "Russia · Moscow",
+   "country": "Russia",
+   "search": "Lomonosov Moscow State University",
+   "summary": "Russia's largest classical university.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Chemistry, biology, physics and medicine."
+    }
+   ],
+   "sources": [
+    "msu.ru"
+   ]
+  },
+  {
+   "id": "sechenov",
+   "type": "university",
+   "name": "Sechenov University",
+   "subtitle": "Russia · Moscow",
+   "country": "Russia",
+   "search": "Sechenov University",
+   "summary": "First Moscow State Medical University.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Medical education, pharmacy and clinical research."
+    }
+   ],
+   "sources": [
+    "sechenov.ru"
+   ]
+  },
+  {
+   "id": "ub",
+   "type": "university",
+   "name": "University of Barcelona",
+   "subtitle": "Spain · Barcelona",
+   "country": "Spain",
+   "search": "University of Barcelona",
+   "summary": "A major public university.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Medicine, pharmacy and chemistry."
+    }
+   ],
+   "sources": [
+    "ub.edu"
+   ]
+  },
+  {
+   "id": "ucm",
+   "type": "university",
+   "name": "Complutense University of Madrid",
+   "subtitle": "Spain · Madrid",
+   "country": "Spain",
+   "search": "Complutense University Madrid",
+   "summary": "One of Spain's largest universities.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Medicine, pharmacy and chemistry."
+    }
+   ],
+   "sources": [
+    "ucm.es"
+   ]
+  },
+  {
+   "id": "uhs-cambodia",
+   "type": "university",
+   "name": "University of Health Sciences",
+   "subtitle": "Cambodia · Phnom Penh",
+   "country": "Cambodia",
+   "search": "University of Health Sciences Cambodia",
+   "summary": "Cambodia's main public university for medicine, pharmacy and dentistry.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Training of doctors, pharmacists and dentists."
+    }
+   ],
+   "sources": [
+    "uhs.edu.kh"
+   ]
+  },
+  {
+   "id": "gamaleya",
+   "type": "institution",
+   "name": "Gamaleya Research Centre",
+   "subtitle": "Russia · Moscow",
+   "country": "Russia",
+   "search": "Gamaleya Sputnik V",
+   "summary": "National Research Centre for Epidemiology and Microbiology, which developed the Sputnik V COVID-19 vaccine.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Infectious diseases, microbiology and vaccines."
+    }
+   ],
+   "sources": [
+    "gamaleya.org"
+   ]
+  },
+  {
+   "id": "cams",
+   "type": "institution",
+   "name": "Chinese Academy of Medical Sciences (CAMS)",
+   "subtitle": "China · Beijing",
+   "country": "China",
+   "search": "Chinese Academy of Medical Sciences",
+   "summary": "China's national medical research academy.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Biomedical research, drug discovery and medical education."
+    }
+   ],
+   "sources": [
+    "cams.cn"
+   ]
+  },
+  {
+   "id": "cacms",
+   "type": "institution",
+   "name": "China Academy of Chinese Medical Sciences",
+   "subtitle": "China · Beijing",
+   "country": "China",
+   "search": "China Academy of Chinese Medical Sciences",
+   "summary": "China's national research academy for traditional Chinese medicine. Tu Youyou, who discovered artemisinin, worked here.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Traditional Chinese medicine research and herbal medicines."
+    }
+   ],
+   "sources": [
+    "cacms.ac.cn"
+   ]
+  },
+  {
+   "id": "chictr",
+   "type": "institution",
+   "name": "Chinese Clinical Trial Registry (ChiCTR)",
+   "subtitle": "China · registry",
+   "country": "China",
+   "search": "ChiCTR clinical trial",
+   "summary": "A WHO primary registry for clinical trials in China.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Registration of clinical trials conducted in China."
+    }
+   ],
+   "sources": [
+    "chictr.org.cn"
+   ]
+  },
+  {
+   "id": "cnio",
+   "type": "institution",
+   "name": "Spanish National Cancer Research Centre (CNIO)",
+   "subtitle": "Spain · Madrid",
+   "country": "Spain",
+   "search": "CNIO cancer research",
+   "summary": "Spain's national cancer research centre.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Cancer biology, genetics and new treatments."
+    }
+   ],
+   "sources": [
+    "cnio.es"
+   ]
+  },
+  {
+   "id": "isciii",
+   "type": "institution",
+   "name": "Instituto de Salud Carlos III",
+   "subtitle": "Spain · Madrid",
+   "country": "Spain",
+   "search": "Instituto de Salud Carlos III",
+   "summary": "Spain's national public health research institute.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Public health, epidemiology and funding of biomedical research."
+    }
+   ],
+   "sources": [
+    "isciii.es"
+   ]
+  },
+  {
+   "id": "pasteur-cambodia",
+   "type": "institution",
+   "name": "Institut Pasteur du Cambodge",
+   "subtitle": "Cambodia · Phnom Penh",
+   "country": "Cambodia",
+   "search": "Institut Pasteur du Cambodge",
+   "summary": "A research institute in the Pasteur Network.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Malaria, dengue, tuberculosis and other infectious diseases in Cambodia."
+    }
+   ],
+   "sources": [
+    "pasteur-kh.org"
+   ]
+  },
+  {
+   "id": "grifols",
+   "type": "company",
+   "name": "Grifols",
+   "subtitle": "Spain · Barcelona",
+   "country": "Spain",
+   "search": "Grifols plasma",
+   "summary": "A global maker of plasma-derived medicines.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Medicines made from blood plasma, diagnostics and hospital products."
+    }
+   ],
+   "sources": [
+    "grifols.com"
+   ]
+  },
+  {
+   "id": "almirall",
+   "type": "company",
+   "name": "Almirall",
+   "subtitle": "Spain · Barcelona",
+   "country": "Spain",
+   "search": "Almirall dermatology",
+   "summary": "A pharmaceutical company focused on skin diseases.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Medical dermatology."
+    }
+   ],
+   "sources": [
+    "almirall.com"
+   ]
+  },
+  {
+   "id": "pharmamar",
+   "type": "company",
+   "name": "PharmaMar",
+   "subtitle": "Spain · Madrid",
+   "country": "Spain",
+   "search": "PharmaMar trabectedin",
+   "summary": "Develops cancer medicines from marine organisms, such as trabectedin.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Marine-derived oncology drugs."
+    }
+   ],
+   "sources": [
+    "pharmamar.com"
+   ]
+  },
+  {
+   "id": "hengrui",
+   "type": "company",
+   "name": "Jiangsu Hengrui Pharmaceuticals",
+   "subtitle": "China · Lianyungang",
+   "country": "China",
+   "search": "Hengrui pharmaceutical",
+   "summary": "One of China's largest pharmaceutical companies.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Cancer, anaesthesia and other innovative and generic medicines."
+    }
+   ],
+   "sources": [
+    "hengrui.com"
+   ]
+  },
+  {
+   "id": "sinopharm",
+   "type": "company",
+   "name": "Sinopharm",
+   "subtitle": "China · Beijing",
+   "country": "China",
+   "search": "Sinopharm",
+   "summary": "China National Pharmaceutical Group, a state-owned group.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Medicine distribution, manufacturing and vaccines."
+    }
+   ],
+   "sources": [
+    "sinopharm.com"
+   ]
+  },
+  {
+   "id": "wuxi",
+   "type": "company",
+   "name": "WuXi AppTec",
+   "subtitle": "China · Shanghai",
+   "country": "China",
+   "search": "WuXi AppTec",
+   "summary": "A contract research and manufacturing company.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Drug discovery, testing and manufacturing services for other companies."
+    }
+   ],
+   "sources": [
+    "wuxiapptec.com"
+   ]
+  },
+  {
+   "id": "biocad",
+   "type": "company",
+   "name": "Biocad",
+   "subtitle": "Russia · Saint Petersburg",
+   "country": "Russia",
+   "search": "Biocad biosimilar",
+   "summary": "A Russian biotechnology company.",
+   "sections": [
+    {
+     "tag": "Info",
+     "title": "Focus",
+     "text": "Monoclonal antibodies and biosimilars."
+    }
+   ],
+   "sources": [
+    "biocad.ru"
+   ]
+  },
+  {
+   "id": "artemisia",
+   "type": "herb",
+   "name": "Sweet wormwood (Qinghao)",
+   "subtitle": "Artemisia annua · traditional Chinese medicine",
+   "country": "China",
+   "search": "artemisinin",
+   "summary": "The plant from which artemisinin was discovered, now the basis of the main malaria treatments.",
+   "sections": [
+    {
+     "tag": "Traditional",
+     "title": "Traditional use",
+     "text": "Used in Chinese medicine for fevers for centuries."
+    },
+    {
+     "tag": "Official",
+     "title": "From plant to medicine",
+     "text": "Tu Youyou isolated artemisinin from it and received the 2015 Nobel Prize in Physiology or Medicine. Artemisinin derivatives are used in combination therapies such as artemether–lumefantrine."
+    },
+    {
+     "tag": "Safety",
+     "title": "Important",
+     "text": "WHO does not recommend using the raw plant or its teas to treat or prevent malaria, because the dose is unreliable and can encourage resistance. Use tested medicines."
+    }
+   ],
+   "sources": [
+    "WHO",
+    "Nobel Prize 2015"
+   ]
+  },
+  {
+   "id": "ginseng",
+   "type": "herb",
+   "name": "Asian ginseng",
+   "subtitle": "Panax ginseng · root · traditional Chinese medicine",
+   "country": "China",
+   "search": "Panax ginseng",
+   "summary": "One of the best-known herbs of Chinese medicine, used as a tonic.",
+   "sections": [
+    {
+     "tag": "Traditional",
+     "title": "Traditional use",
+     "text": "Used to restore energy and for general weakness."
+    },
+    {
+     "tag": "Research",
+     "title": "Human studies",
+     "text": "Many small trials on fatigue, thinking and blood sugar, with mixed and often weak results."
+    },
+    {
+     "tag": "Safety",
+     "title": "Safety",
+     "text": "May affect blood sugar and interact with warfarin and some other medicines. Ask a pharmacist if you take regular medicines."
+    }
+   ],
+   "sources": [
+    "NCCIH (US)",
+    "PubMed"
+   ]
+  },
+  {
+   "id": "astragalus",
+   "type": "herb",
+   "name": "Astragalus (Huang qi)",
+   "subtitle": "Astragalus membranaceus · root · traditional Chinese medicine",
+   "country": "China",
+   "search": "Astragalus membranaceus",
+   "summary": "A common ingredient in Chinese herbal formulas.",
+   "sections": [
+    {
+     "tag": "Traditional",
+     "title": "Traditional use",
+     "text": "Used to strengthen the body's resistance."
+    },
+    {
+     "tag": "Lab",
+     "title": "Research",
+     "text": "Mostly laboratory and animal studies; good human trials are limited."
+    },
+    {
+     "tag": "Safety",
+     "title": "Safety",
+     "text": "May interact with medicines that suppress the immune system."
+    }
+   ],
+   "sources": [
+    "NCCIH (US)",
+    "PubMed"
+   ]
+  },
+  {
+   "id": "licorice",
+   "type": "herb",
+   "name": "Licorice root (Gan cao)",
+   "subtitle": "Glycyrrhiza species · root",
+   "country": "China",
+   "search": "glycyrrhizin licorice",
+   "summary": "Used in many Chinese and Ayurvedic herbal formulas and as a sweetener.",
+   "sections": [
+    {
+     "tag": "Traditional",
+     "title": "Traditional use",
+     "text": "Used for coughs, digestion and to balance herbal formulas."
+    },
+    {
+     "tag": "Safety",
+     "title": "Safety",
+     "text": "Its compound glycyrrhizin, taken regularly in large amounts, can raise blood pressure and lower potassium, which can affect the heart. People with high blood pressure, heart or kidney disease should avoid large amounts."
+    }
+   ],
+   "sources": [
+    "NCCIH (US)",
+    "PubMed"
+   ]
+  },
+  {
+   "id": "ephedra",
+   "type": "herb",
+   "name": "Ephedra (Ma huang)",
+   "subtitle": "Ephedra sinica · traditional Chinese medicine",
+   "country": "China",
+   "search": "ephedra ephedrine",
+   "summary": "The source of ephedrine. Shows why 'natural' does not mean safe.",
+   "sections": [
+    {
+     "tag": "Traditional",
+     "title": "Traditional use",
+     "text": "Used in Chinese medicine for asthma and colds."
+    },
+    {
+     "tag": "Official",
+     "title": "Regulation",
+     "text": "The US FDA banned dietary supplements containing ephedra alkaloids in 2004 because of heart attacks, strokes and deaths."
+    },
+    {
+     "tag": "Safety",
+     "title": "Safety",
+     "text": "Raises blood pressure and heart rate. Dangerous with heart disease and with stimulants."
+    }
+   ],
+   "sources": [
+    "FDA"
+   ]
+  },
+  {
+   "id": "good-prescribing",
+   "type": "guide",
+   "name": "Good prescribing: the WHO 6 steps",
+   "subtitle": "Guide · for students and health professionals",
+   "country": "",
+   "search": "rational prescribing",
+   "summary": "The World Health Organization's Guide to Good Prescribing teaches a six-step process used in medical and pharmacy schools worldwide.",
+   "sections": [
+    {
+     "tag": "Guideline",
+     "title": "1. Define the patient's problem",
+     "text": "Make the diagnosis, or the best working diagnosis, before choosing any medicine."
+    },
+    {
+     "tag": "Guideline",
+     "title": "2. Specify the goal of treatment",
+     "text": "Decide what you want to achieve, for example lowering blood pressure or curing an infection."
+    },
+    {
+     "tag": "Guideline",
+     "title": "3. Check that the usual medicine suits this patient",
+     "text": "Compare effectiveness, safety, suitability and cost. Check allergies, pregnancy, age, kidney and liver function, and other medicines for interactions."
+    },
+    {
+     "tag": "Guideline",
+     "title": "4. Start treatment and write the prescription",
+     "text": "Write a clear, complete prescription: medicine, strength, dose, route, frequency, duration and quantity."
+    },
+    {
+     "tag": "Guideline",
+     "title": "5. Give information, instructions and warnings",
+     "text": "Explain what the medicine does, how to take it, common side effects, warning signs, and what to do if a dose is missed."
+    },
+    {
+     "tag": "Guideline",
+     "title": "6. Monitor, and stop when appropriate",
+     "text": "Plan follow-up to check that the medicine works and is tolerated, and stop it when it is no longer needed."
+    },
+    {
+     "tag": "Safety",
+     "title": "Important",
+     "text": "This summarises how prescribers are trained. Only a licensed prescriber who has assessed a patient can prescribe."
+    }
+   ],
+   "sources": [
+    "WHO Guide to Good Prescribing"
    ]
   }
  ]

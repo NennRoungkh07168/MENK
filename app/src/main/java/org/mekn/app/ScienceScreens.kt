@@ -149,7 +149,11 @@ private fun ExploreHub(onSection: (String?) -> Unit, onSearch: (String) -> Unit,
                 LibKind.Biochem to Icons.Outlined.Biotech,
                 LibKind.Companies to Icons.Outlined.Factory,
                 LibKind.Institutions to Icons.Outlined.AccountBalance,
-                LibKind.Devices to Icons.Outlined.Devices
+                LibKind.Universities to Icons.Outlined.School,
+                LibKind.Hospitals to Icons.Outlined.LocalHospital,
+                LibKind.Regulators to Icons.Outlined.Gavel,
+                LibKind.Devices to Icons.Outlined.Devices,
+                LibKind.Guides to Icons.Outlined.Description
             )
             items(LibKind.entries.toList()) { k ->
                 HubCard(k.label, k.blurb, icons[k] ?: Icons.Outlined.Info) { onSection("lib:${k.type}") }
@@ -188,7 +192,7 @@ private fun PlannedCard() {
             Text("Coming in later versions", fontWeight = FontWeight.Bold, fontSize = 15.sp, color = Mekn.Ink)
             Text(
                 "Camera scanning and barcode lookup · periodic table · 3D molecule viewer · drawing a structure " +
-                    "to search · reaction viewer · larger datasets from the MENK server.",
+                    "to search · reaction viewer · live data from regulators outside the US · larger datasets from the RENK server.",
                 fontSize = 13.sp, lineHeight = 18.sp, color = BodyText
             )
         }
@@ -301,7 +305,7 @@ private fun DrugIndexScreen(onSearch: (String) -> Unit, onBack: () -> Unit) {
 @Composable
 fun ResearchScreen(onSearch: (String) -> Unit, onExplore: (String) -> Unit) {
     Column(Modifier.fillMaxSize()) {
-        PageHeader("Research center", "Papers, clinical trials, FDA records and chemistry, live")
+        PageHeader("Research center", "Papers and trials worldwide, medicine records and chemistry")
         CenteredList {
             item {
                 LookupField(
@@ -320,7 +324,7 @@ fun ResearchScreen(onSearch: (String) -> Unit, onExplore: (String) -> Unit) {
                     Icons.Outlined.Groups) { onSearch("metformin") }
             }
             item {
-                HubCard("Medicine research", "FDA approvals, manufacturers, recalls, labels and interactions",
+                HubCard("Medicine research", "Side effects, prescribing information, approvals, recalls, interactions",
                     Icons.Outlined.Medication) { onSearch("aspirin") }
             }
             item {
@@ -328,19 +332,31 @@ fun ResearchScreen(onSearch: (String) -> Unit, onExplore: (String) -> Unit) {
                     Icons.Outlined.Science) { onSearch("caffeine") }
             }
             item {
-                HubCard("Pharma companies", "Manufacturers and vaccine makers in Germany and India",
+                HubCard("Pharma companies", "Germany, India, China, Spain, Russia",
                     Icons.Outlined.Factory) { onExplore("lib:company") }
             }
             item {
-                HubCard("Research institutions & labs", "Max Planck, Helmholtz centres, DZG, ICMR and more",
+                HubCard("Research institutes & labs", "Germany, India, China, Russia, Spain, Cambodia",
                     Icons.Outlined.AccountBalance) { onExplore("lib:institution") }
+            }
+            item {
+                HubCard("Universities", "Medicine and chemistry universities by country",
+                    Icons.Outlined.School) { onExplore("lib:university") }
+            }
+            item {
+                HubCard("Hospitals & clinics", "AIIMS, Charité, Peking Union, Hospital Clínic and more",
+                    Icons.Outlined.LocalHospital) { onExplore("lib:hospital") }
+            }
+            item {
+                HubCard("Regulators & health systems", "WHO, EMA, FDA, NMPA, CDSCO, Medicare, PM-JAY and more",
+                    Icons.Outlined.Gavel) { onExplore("lib:regulator") }
             }
             item {
                 BorderCard {
                     Text("Evidence principle", fontWeight = FontWeight.Bold, fontSize = 15.sp, color = Mekn.Ink)
                     Spacer(Modifier.height(6.dp))
                     Text(
-                        "MENK shows the evidence behind a claim instead of one unexplained score: source, study type, " +
+                        "RENK shows the evidence behind a claim instead of one unexplained score: source, study type, " +
                             "population, limitations and date stay visible.",
                         fontSize = 14.sp, lineHeight = 20.sp, color = BodyText
                     )

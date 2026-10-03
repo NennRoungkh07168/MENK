@@ -12,8 +12,8 @@ android {
         applicationId = "org.mekn.app"
         minSdk = 26  // Android 8+, needed for the adaptive launcher icon
         targetSdk = 34
-        versionCode = 9
-        versionName = "0.6.0"
+        versionCode = 11
+        versionName = "1.01"
     }
 
     signingConfigs {

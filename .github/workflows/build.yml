@@ -1,4 +1,4 @@
-name: Build MENK APK
+name: Build RENK APK
 
 on:
   push:
@@ -29,5 +29,5 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: menk-debug-apk
+          name: renk-debug-apk
           path: app/build/outputs/apk/debug/*.apk

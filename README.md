@@ -1,6 +1,6 @@
-# MENK — Medical Evidence Knowledge Network (Android app, v0.6)
+# RENK — Research Evidence Network of Knowledge (Android app, v1.01)
 
-MENK explains published evidence. It does not diagnose or recommend treatment.
+RENK explains published evidence. It does not diagnose or recommend treatment.
 
 v0.2 adds live search. Type a disease, medicine, herb or compound on Home and
 press Search. Results come from free public databases:
@@ -13,10 +13,10 @@ press Search. Results come from free public databases:
   and manufacturing recalls (enforcement reports)
 - ClinicalTrials.gov posted results: enrollment, main outcome, serious adverse events
 
-The app (MENK) shows what has been studied and how strong that research is.
+The app (RENK) shows what has been studied and how strong that research is.
 It does not diagnose, recommend treatment, or claim that anything is a cure.
 
-v0.5 adds the built-in MENK Library (works offline): 10 medicines, 8 diseases,
+v0.5 adds the built-in RENK Library (works offline): 10 medicines, 8 diseases,
 5 herbs and 15 research institutions in Germany and India. Every section is
 tagged by evidence type (Official, Guideline, Human research, Lab only,
 Traditional, Safety). Data lives in app/src/main/assets/library.json.
@@ -59,7 +59,7 @@ expect a desktop computer.
 ## Without Termux
 
 Upload the files to a GitHub repo through the website, open the Actions tab,
-run "Build MEKN APK", and download `menk-debug-apk` from the finished run.
+run "Build MEKN APK", and download `renk-debug-apk` from the finished run.
 
 ## Project layout
 
@@ -74,7 +74,7 @@ run "Build MEKN APK", and download `menk-debug-apk` from the finished run.
   Play Store later needs a signed release build.
 - If a build fails, run:  gh run view --log-failed
 
-Note: the app is named MENK. Internal code names (folder MEKN, package org.mekn.app)
+Note: the app is named RENK. Internal code names (folder MEKN, package org.mekn.app)
 stay unchanged so updates keep installing over the existing app.
 
 ## Database design
@@ -84,4 +84,13 @@ stay unchanged so updates keep installing over the existing app.
 - database/chem_search_rdkit.sql — optional structure and similarity search
 
 ## v0.6
-See docs/MENK_V0.6.md for the five-tab layout, drug index, library sections, Research center and Simulation Lab.
+See docs/RENK_V0.6.md for the five-tab layout, drug index, library sections, Research center and Simulation Lab.
+
+## v0.7
+Side effects, prescribing information, PDF reports, offline search, country filters and
+international institutions. See docs/RENK_V0.7.md.
+
+If git says "not a git repository", run:  bash termux/reconnect.sh
+
+## v1.01
+Renamed to RENK. Evidence PDF library (offline), brand-name chemistry, estimated levels for new papers. See docs/RENK_V1.01.md.

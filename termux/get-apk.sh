@@ -15,10 +15,10 @@ gh run watch "$RUN_ID" --exit-status || {
   exit 1
 }
 
-OUT="$HOME/storage/downloads/menk"
+OUT="$HOME/storage/downloads/renk"
 [ -d "$HOME/storage/downloads" ] || OUT="$HOME/mekn-apk"
 rm -rf "$OUT"
-gh run download "$RUN_ID" --name menk-debug-apk --dir "$OUT"
+gh run download "$RUN_ID" --name renk-debug-apk --dir "$OUT"
 
 APK=$(ls "$OUT"/*.apk | head -n 1)
 echo "APK saved to: $APK"

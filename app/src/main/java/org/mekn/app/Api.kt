@@ -5,12 +5,17 @@ import org.json.JSONObject
 import java.net.HttpURLConnection
 import java.net.URL
 import java.net.URLEncoder
+import java.io.File
+import java.security.MessageDigest
+import java.util.concurrent.atomic.AtomicInteger
 
 // ---------- Data models ----------
 
 data class Paper(
     val title: String, val authors: String, val journal: String, val year: String,
-    val level: Level, val abstract: String, val url: String
+    val level: Level, val abstract: String, val url: String,
+    /** True when the level was estimated from the title because the paper isn't tagged yet. */
+    val estimated: Boolean = false
 )
 
 data class OutcomeResult(val title: String, val values: List<String>, val pValue: String)
@@ -19,7 +24,8 @@ data class Trial(
     val id: String, val title: String, val status: String, val phase: String,
     val conditions: String, val url: String,
     val enrollment: String, val primaryOutcome: String, val whyStopped: String, val completion: String,
-    val hasResults: Boolean, val outcome: OutcomeResult?, val safety: List<String>
+    val hasResults: Boolean, val outcome: OutcomeResult?, val safety: List<String>,
+    val countries: String
 )
 
 data class TrialSummary(val total: Int, val recruiting: Int, val trials: List<Trial>)
@@ -33,8 +39,12 @@ data class Compound(
 
 data class DrugLabel(
     val brand: String, val generic: String, val manufacturer: String,
-    val uses: String, val warnings: String, val interactions: String, val contraindications: String
+    val uses: String, val warnings: String, val interactions: String, val contraindications: String,
+    val adverseReactions: String, val dosing: String, val pregnancy: String
 )
+
+/** Side effects reported to the FDA (FAERS). Reports are not proof that the drug caused the effect. */
+data class SideEffectReports(val totalReports: Int, val top: List<Tally>)
 
 data class Approval(
     val appNo: String, val sponsor: String, val brand: String, val form: String,
@@ -65,6 +75,23 @@ enum class Level(val code: String, val human: Boolean) {
 
 object Api {
 
+    /** Folder for saved responses, so earlier searches still work offline. Set from MainActivity. */
+    @Volatile var cacheDir: File? = null
+
+    /** Counts answers served from the offline copy; screens compare before/after a search. */
+    val cacheHits = AtomicInteger(0)
+
+    fun init(dir: File) {
+        cacheDir = File(dir, "menk-cache").apply { mkdirs() }
+    }
+
+    private fun cacheFile(url: String): File? {
+        val dir = cacheDir ?: return null
+        val hash = MessageDigest.getInstance("SHA-1").digest(url.toByteArray())
+            .joinToString("") { "%02x".format(it) }
+        return File(dir, hash)
+    }
+
     private fun enc(s: String): String = URLEncoder.encode(s, "UTF-8")
 
     /** HTTP status (-1 = no connection) and parsed JSON body when successful. */
@@ -73,13 +100,22 @@ object Api {
         conn.connectTimeout = 15000
         conn.readTimeout = 30000
         conn.setRequestProperty("Accept", "application/json")
-        conn.setRequestProperty("User-Agent", "MENK/0.6 (Android; evidence research app)")
+        conn.setRequestProperty("User-Agent", "RENK/1.01 (Android; evidence research app)")
         val code = conn.responseCode
         val body = if (code in 200..299) conn.inputStream.bufferedReader().use { it.readText() } else null
         conn.disconnect()
-        code to body?.let { JSONObject(it) }
+        val json = body?.let { JSONObject(it) }
+        if (body != null && json != null) {
+            try { cacheFile(url)?.writeText(body) } catch (e2: Exception) { }
+        }
+        code to json
     } catch (e: Exception) {
-        -1 to null
+        // No connection: fall back to the saved copy from an earlier search, if there is one.
+        val saved = try { cacheFile(url)?.takeIf { it.exists() }?.readText()?.let { JSONObject(it) } } catch (e2: Exception) { null }
+        if (saved != null) {
+            cacheHits.incrementAndGet()
+            200 to saved
+        } else -1 to null
     }
 
     private fun get(url: String): JSONObject? = request(url).second
@@ -111,20 +147,38 @@ object Api {
         }
     }
 
+    /** For new papers without publication-type tags: estimate the study type from the title. */
+    private fun levelFromTitle(title: String): Level? {
+        val t = title.lowercase()
+        return when {
+            "meta-analysis" in t || "meta analysis" in t || "systematic review" in t -> Level.L2
+            ("randomized" in t || "randomised" in t) && "trial" in t -> Level.L3
+            "clinical trial" in t -> Level.L3
+            "case report" in t || "cohort" in t || "case-control" in t || "cross-sectional" in t ||
+                "observational" in t -> Level.L4
+            else -> null
+        }
+    }
+
     // ----- Literature: Europe PMC (includes PubMed) -----
 
-    fun papers(q: String): List<Paper>? {
+    /** country = null for worldwide, or a country name matched against author affiliations. */
+    fun papers(q: String, country: String? = null): List<Paper>? {
+        val query = if (country == null) q else "($q) AND AFF:\"$country\""
         val root = get(
             "https://www.ebi.ac.uk/europepmc/webservices/rest/search" +
-                "?query=${enc(q)}&format=json&resultType=core&pageSize=25"
+                "?query=${enc(query)}&format=json&resultType=core&pageSize=25"
         ) ?: return null
         return root.optJSONObject("resultList")?.optJSONArray("result").objects().map { o ->
+            val tagged = levelOf(o.optJSONObject("pubTypeList")?.optJSONArray("pubType").strings())
+            val guess = if (tagged == Level.OTHER) levelFromTitle(o.optString("title")) else null
             Paper(
                 title = clean(o.optString("title")),
                 authors = o.optString("authorString"),
                 journal = o.optJSONObject("journalInfo")?.optJSONObject("journal")?.optString("title") ?: "",
                 year = o.optString("pubYear"),
-                level = levelOf(o.optJSONObject("pubTypeList")?.optJSONArray("pubType").strings()),
+                level = tagged.takeIf { it != Level.OTHER } ?: guess ?: Level.OTHER,
+                estimated = tagged == Level.OTHER && guess != null,
                 abstract = clean(o.optString("abstractText")),
                 url = "https://europepmc.org/article/${o.optString("source")}/${o.optString("id")}"
             )
@@ -152,8 +206,10 @@ object Api {
 
     // ----- Clinical trials: ClinicalTrials.gov API v2, including posted results -----
 
-    fun trials(q: String): TrialSummary? {
-        val base = "https://clinicaltrials.gov/api/v2/studies?query.term=${enc(q)}&countTotal=true"
+    /** country = null for worldwide, or a country name for studies with sites there. */
+    fun trials(q: String, country: String? = null): TrialSummary? {
+        val base = "https://clinicaltrials.gov/api/v2/studies?query.term=${enc(q)}&countTotal=true" +
+            (if (country == null) "" else "&query.locn=${enc(country)}")
         val root = get("$base&pageSize=15") ?: return null
         val recruiting = get("$base&pageSize=1&filter.overallStatus=RECRUITING")?.optInt("totalCount", 0) ?: 0
         val list = root.optJSONArray("studies").objects().mapNotNull { study ->
@@ -185,7 +241,11 @@ object Api {
                 completion = sm?.optJSONObject("completionDateStruct")?.optString("date") ?: "",
                 hasResults = study.optBoolean("hasResults", rs != null),
                 outcome = rs?.let { primaryResult(it) },
-                safety = rs?.let { seriousEvents(it) } ?: emptyList()
+                safety = rs?.let { seriousEvents(it) } ?: emptyList(),
+                countries = ps.optJSONObject("contactsLocationsModule")?.optJSONArray("locations").objects()
+                    .map { it.optString("country") }.filter { it.isNotBlank() }.distinct().let { list ->
+                        if (list.size > 6) list.take(6).joinToString(", ") + " +${list.size - 6} more" else list.joinToString(", ")
+                    }
             )
         }
         return TrialSummary(root.optInt("totalCount", list.size), recruiting, list)
@@ -240,12 +300,41 @@ object Api {
             .openConnection() as HttpURLConnection
         conn.connectTimeout = 15000
         conn.readTimeout = 30000
-        conn.setRequestProperty("User-Agent", "MENK/0.6 (Android; evidence research app)")
+        conn.setRequestProperty("User-Agent", "RENK/1.01 (Android; evidence research app)")
         val bytes = if (conn.responseCode in 200..299) conn.inputStream.use { it.readBytes() } else null
         conn.disconnect()
+        if (bytes != null) {
+            try { cacheFile("png:$cid")?.writeBytes(bytes) } catch (e2: Exception) { }
+        }
         bytes
     } catch (e: Exception) {
-        null
+        try { cacheFile("png:$cid")?.takeIf { it.exists() }?.readBytes() } catch (e2: Exception) { null }
+    }
+
+    private val SALT_WORDS = setOf(
+        "saccharate", "aspartate", "sulfate", "sulphate", "hydrochloride", "hcl", "hydrobromide", "sodium",
+        "potassium", "calcium", "magnesium", "maleate", "mesylate", "besylate", "tartrate", "bitartrate",
+        "citrate", "phosphate", "acetate", "succinate", "fumarate", "bromide", "chloride", "monohydrate",
+        "dihydrate", "trihydrate", "anhydrous", "hyclate", "extended-release", "er", "xr", "tablets", "capsules"
+    )
+
+    /**
+     * Chemical records for a search. Works for single compounds ("caffeine") and for brand names
+     * or combinations ("Adderall"), using the US label's generic name to find each active ingredient.
+     * Returns the compounds and a note on how they were found.
+     */
+    fun resolveCompounds(name: String): Pair<List<Compound>, String>? {
+        compound(name)?.let { return listOf(it) to "" }
+        val generic = label(name)?.generic ?: return emptyList<Compound>() to ""
+        val parts = generic.lowercase().split(",", " and ", "/", ";", "+")
+            .map { part -> part.split(" ").filter { it.isNotBlank() && it !in SALT_WORDS }.joinToString(" ").trim() }
+            .filter { it.length > 2 }
+            .distinct()
+            .take(4)
+        val found = parts.mapNotNull { compound(it) }.distinctBy { it.cid }
+        val note = if (found.isEmpty()) "" else
+            "\"$name\" is a product name. Its active ingredients from the US label: ${parts.joinToString(", ")}."
+        return found to note
     }
 
     // ----- FDA: openFDA -----
@@ -273,10 +362,38 @@ object Api {
                 uses = clean(first("indications_and_usage", "purpose")).take(700),
                 warnings = clean(first("boxed_warning", "warnings", "warnings_and_cautions")).take(700),
                 interactions = clean(first("drug_interactions", "ask_doctor_or_pharmacist")).take(900),
-                contraindications = clean(first("contraindications", "do_not_use")).take(600)
+                contraindications = clean(first("contraindications", "do_not_use")).take(600),
+                adverseReactions = clean(first("adverse_reactions")).take(1200),
+                dosing = clean(first("dosage_and_administration", "directions")).take(1500),
+                pregnancy = clean(first("pregnancy", "pregnancy_or_breast_feeding", "use_in_specific_populations")).take(700)
             )
         }
         return null
+    }
+
+    /** Most-reported side effects in the FDA Adverse Event Reporting System (FAERS). */
+    fun sideEffects(name: String): SideEffectReports? {
+        var field = "generic_name"
+        var (code, root) = fdaEvent(name, field, "&count=patient.reaction.reactionmeddrapt.exact&limit=15")
+        if (failed(code)) return null
+        if (root == null) {
+            field = "brand_name"
+            val second = fdaEvent(name, field, "&count=patient.reaction.reactionmeddrapt.exact&limit=15")
+            if (failed(second.first)) return null
+            root = second.second
+        }
+        if (root == null) return SideEffectReports(0, emptyList())
+        val top = root.optJSONArray("results").objects().map {
+            Tally(it.optString("term").lowercase().replaceFirstChar { c -> c.uppercase() }, it.optInt("count"))
+        }
+        val total = fdaEvent(name, field, "&limit=1").second
+            ?.optJSONObject("meta")?.optJSONObject("results")?.optInt("total", 0) ?: 0
+        return SideEffectReports(total, top)
+    }
+
+    private fun fdaEvent(name: String, field: String, extra: String): Pair<Int, JSONObject?> {
+        val search = enc("patient.drug.openfda.$field:\"${name.trim()}\"")
+        return request("https://api.fda.gov/drug/event.json?search=$search$extra")
     }
 
     /** Drugs@FDA approvals. total = 0 means not found in FDA's approved-drug database. */
@@ -308,15 +425,20 @@ object Api {
 
     /** Products on the US market (NDC directory), counted across all listings. */
     fun market(name: String): Market? {
-        fun tally(countField: String, limit: Int): List<Tally>? {
-            val (code, root) = fda("ndc", "generic_name", name, "&count=$countField&limit=$limit")
+        fun tally(field: String, countField: String, limit: Int): List<Tally>? {
+            val (code, root) = fda("ndc", field, name, "&count=$countField&limit=$limit")
             if (failed(code)) return null
             return root?.optJSONArray("results").objects().map { Tally(it.optString("term"), it.optInt("count")) }
         }
-        val categories = tally("marketing_category.exact", 20) ?: return null
-        val makers = tally("labeler_name.exact", 8) ?: return null
-        val forms = tally("dosage_form.exact", 6) ?: return null
-        return Market(categories, makers, forms)
+        // Try the generic name first, then the brand name (e.g. "Adderall").
+        for (field in listOf("generic_name", "brand_name")) {
+            val categories = tally(field, "marketing_category.exact", 20) ?: return null
+            if (categories.isEmpty()) continue
+            val makers = tally(field, "labeler_name.exact", 8) ?: return null
+            val forms = tally(field, "dosage_form.exact", 6) ?: return null
+            return Market(categories, makers, forms)
+        }
+        return Market(emptyList(), emptyList(), emptyList())
     }
 
     /** Manufacturing recalls (FDA enforcement reports), newest first. */
